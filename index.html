@@ -41,6 +41,8 @@ gtag('config', 'G-0330YJ1QMD');
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="image" href="hero.png">
 
 <script type="application/ld+json">
@@ -71,135 +73,217 @@ gtag('config', 'G-0330YJ1QMD');
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap');
+
 :root{
-  --red: #8c1c22;
+  --red: #9a1c22;
   --red-deep: #4a0e12;
   --blue: #1c3a5e;
-  --blue-deep: #0d1e33;
-  --parchment: #f2ece0;
+  --blue-deep: #0a1626;
+  --parchment: #f3ece0;
+  --parchment-deep: #e9dfcc;
   --ink: #201a15;
-  --gold: #b8935a;
+  --gold: #c9a15f;
+  --gold-bright: #e0b96a;
   --stone: #3a3630;
 }
 *{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
 body{
   margin:0;
-  font-family: Georgia, 'Iowan Old Style', serif;
+  font-family: 'EB Garamond', Georgia, serif;
   background: var(--parchment);
+  background-image:
+    radial-gradient(ellipse at top left, rgba(154,28,34,0.04), transparent 50%),
+    radial-gradient(ellipse at bottom right, rgba(28,58,94,0.05), transparent 50%);
   color: var(--ink);
-  line-height: 1.75;
+  line-height: 1.8;
+  font-size: 18px;
 }
-h1,h2,h3{ font-family: 'Trajan Pro', Cambria, Georgia, serif; letter-spacing:0.5px; }
-a{ color: var(--red); }
+h1,h2,h3{ font-family: 'Cinzel', 'Trajan Pro', Cambria, Georgia, serif; letter-spacing:0.5px; }
+a{ color: var(--red); text-decoration-thickness: 1px; }
+p{ margin: 0 0 1.3em; }
 
 #progress-bar{
   position: fixed; top:0; left:0; height:4px; width:0%;
-  background: linear-gradient(90deg, var(--red), var(--blue));
+  background: linear-gradient(90deg, var(--red), var(--gold-bright), var(--blue));
   z-index: 9999; transition: width 0.1s ease-out;
+  box-shadow: 0 0 8px rgba(154,28,34,0.5);
 }
 
 nav.top-nav{
   position: sticky; top:0; z-index: 500;
-  background: var(--blue-deep);
+  background: linear-gradient(180deg, var(--blue-deep), #0d1e33);
   color: var(--parchment);
-  padding: 14px 24px;
+  padding: 16px 28px;
   display:flex; justify-content:space-between; align-items:center;
-  border-bottom: 2px solid var(--gold);
+  border-bottom: 1px solid var(--gold);
+  box-shadow: 0 2px 16px rgba(0,0,0,0.4);
 }
-nav.top-nav .brand{ font-weight:bold; color: var(--gold); font-size: 1.1em; }
-nav.top-nav a.navlink{ color: var(--parchment); text-decoration:none; margin-left:18px; font-size:0.95em; }
-nav.top-nav a.navlink:hover{ color: var(--gold); }
+nav.top-nav .brand{
+  font-family:'Cinzel', serif; font-weight:700; color: var(--gold-bright);
+  font-size: 1.15em; letter-spacing:1.5px;
+}
+nav.top-nav a.navlink{
+  color: var(--parchment); text-decoration:none; margin-left:22px; font-size:0.9em;
+  letter-spacing: 0.8px; text-transform:uppercase; font-family:'Cinzel',serif; font-weight:500;
+  border-bottom: 1px solid transparent; padding-bottom:3px; transition: all 0.2s;
+}
+nav.top-nav a.navlink:hover{ color: var(--gold-bright); border-bottom-color: var(--gold-bright); }
 
-.hero-wrap{ width:100%; }
+.hero-wrap{ width:100%; position:relative; }
+.hero-wrap::after{
+  content:""; position:absolute; inset:0;
+  background: linear-gradient(180deg, transparent 60%, rgba(10,22,38,0.75) 100%);
+  pointer-events:none;
+}
 .hero-wrap img{ width:100%; display:block; max-height:640px; object-fit:cover; }
+
 .title-block{
-  background: var(--blue-deep);
+  background: radial-gradient(ellipse at 50% -20%, #16283f 0%, var(--blue-deep) 55%, var(--red-deep) 140%);
   color: var(--parchment);
   text-align:center;
-  padding: 48px 20px 56px;
-  border-bottom: 4px solid var(--red);
+  padding: 56px 20px 64px;
+  border-bottom: 3px solid var(--gold);
+  position:relative;
+}
+.title-block::before{
+  content:"✠"; display:block; color:var(--gold); font-size:1.6em; margin-bottom:18px; opacity:0.85;
 }
 .title-block h1{
-  font-size: 2.6em; margin:0 0 12px; color: var(--parchment);
-  text-shadow: 0 0 18px rgba(140,28,34,0.6);
+  font-size: 3.1em; margin:0 0 16px; color: var(--parchment);
+  text-shadow: 0 0 24px rgba(154,28,34,0.55), 0 0 60px rgba(154,28,34,0.25);
+  letter-spacing: 2px;
 }
-.title-block p.subtitle{ font-size:1.2em; color: var(--gold); max-width:720px; margin:0 auto; font-style:italic; }
+.title-block p.subtitle{
+  font-size:1.25em; color: var(--gold-bright); max-width:680px; margin:0 auto;
+  font-family:'Cormorant Garamond', serif; font-style:italic; line-height:1.5;
+}
+.epigraph{
+  text-align:center; font-style:italic; color: var(--parchment); opacity:0.75;
+  max-width:520px; margin: 26px auto 0; padding-top: 20px; font-size:1.05em;
+  border-top: 1px solid rgba(201,161,95,0.3);
+  font-family:'Cormorant Garamond', serif;
+}
 
 .cookie-banner{
   position: fixed; bottom:0; left:0; right:0; z-index:9998;
   background: var(--ink); color:var(--parchment);
   padding: 16px 20px; display:flex; justify-content:space-between; align-items:center; gap:16px;
-  font-size:0.9em;
+  font-size:0.9em; border-top:1px solid var(--gold);
 }
 .cookie-banner button{
-  background: var(--red); color:#fff; border:none; padding:10px 22px;
-  cursor:pointer; font-family:inherit; font-weight:bold; border-radius:3px;
+  background: linear-gradient(180deg, var(--red), var(--red-deep)); color:#fff; border:1px solid var(--gold);
+  padding:10px 26px; cursor:pointer; font-family:'Cinzel',inherit; font-weight:700;
+  border-radius:2px; letter-spacing:0.5px;
 }
 
-.share-bar{ display:flex; gap:14px; justify-content:center; padding: 20px 0; }
-.share-bar a{ display:inline-flex; align-items:center; justify-content:center; width:38px; height:38px; border-radius:50%; background: var(--blue); }
-.share-bar a:hover{ background: var(--red); }
+.share-bar{ display:flex; gap:14px; justify-content:center; padding: 26px 0 10px; }
+.share-bar a{
+  display:inline-flex; align-items:center; justify-content:center; width:40px; height:40px;
+  border-radius:50%; background: var(--blue); border: 1px solid var(--gold); transition: all 0.25s;
+}
+.share-bar a:hover{ background: var(--red); transform: translateY(-2px); box-shadow:0 4px 12px rgba(154,28,34,0.4); }
 .share-bar svg{ width:18px; height:18px; }
 
-main{ max-width: 760px; margin: 0 auto; padding: 0 24px 80px; }
+main{ max-width: 740px; margin: 0 auto; padding: 0 24px 80px; }
 
-.lede{ font-size:1.15em; padding-top: 44px; }
-.lede p{ margin-bottom:1.3em; }
+.lede{ font-size:1.18em; padding-top: 50px; }
+.lede p:first-of-type::first-letter{
+  font-family:'Cinzel', serif; font-size: 3.6em; float:left; line-height:0.8;
+  padding: 8px 10px 0 0; color: var(--red); font-weight:700;
+}
 
 .section-index{
-  background: rgba(28,58,94,0.06);
-  border: 1px solid rgba(140,28,34,0.2);
-  border-radius: 6px;
-  padding: 28px 32px;
-  margin: 40px 0;
+  background: linear-gradient(160deg, rgba(28,58,94,0.07), rgba(154,28,34,0.05));
+  border: 1px solid rgba(201,161,95,0.4);
+  border-radius: 2px;
+  padding: 32px 36px;
+  margin: 48px 0;
+  position:relative;
 }
-.section-index h2{ margin-top:0; color: var(--blue); font-size:1.3em; }
-.section-index ol{ column-count:1; padding-left:20px; }
-.section-index li{ margin-bottom:6px; }
-.section-index .part-title{ font-weight:bold; color:var(--red); margin-top:16px; list-style:none; margin-left:-20px; }
+.section-index::before, .section-index::after{
+  content:""; position:absolute; width:16px; height:16px; border: 2px solid var(--gold);
+}
+.section-index::before{ top:8px; left:8px; border-right:none; border-bottom:none; }
+.section-index::after{ bottom:8px; right:8px; border-left:none; border-top:none; }
+.section-index h2{
+  margin-top:0; color: var(--blue); font-size:1.4em; text-align:center;
+  letter-spacing:2px; margin-bottom:24px;
+}
+.section-index ol{ list-style:none; padding-left:0; counter-reset: chnum; }
+.section-index li{ margin-bottom:9px; padding-left: 2px; }
+.section-index li a{
+  color: var(--ink); text-decoration:none; border-bottom: 1px solid transparent;
+  transition: all 0.15s;
+}
+.section-index li a:hover{ color: var(--red); border-bottom-color: var(--red); }
+.section-index .part-title{
+  font-family:'Cinzel',serif; font-weight:700; color:var(--red); margin-top:22px;
+  list-style:none; margin-left:0; font-size:0.85em; letter-spacing:1.5px; text-transform:uppercase;
+  border-bottom: 1px solid rgba(154,28,34,0.25); padding-bottom:6px;
+}
+.section-index .part-title:first-child{ margin-top:0; }
 
-article.chapter{ padding-top: 60px; scroll-margin-top: 80px; }
-article.chapter h2{ color: var(--red); font-size:1.6em; border-bottom:2px solid var(--gold); padding-bottom:8px; }
-article.chapter h3{ color: var(--blue); font-size:1.2em; }
-.part-divider{
-  padding-top:70px; text-align:center;
+article.chapter{ padding-top: 66px; scroll-margin-top: 80px; position:relative; }
+article.chapter h2{
+  color: var(--red); font-size:1.55em; padding-bottom:12px; margin-bottom:20px;
+  border-bottom:1px solid var(--gold); position:relative; line-height:1.3;
+}
+article.chapter h2::after{
+  content:""; position:absolute; bottom:-2px; left:0; width:52px; height:3px; background: var(--red);
+}
+article.chapter h3{ color: var(--blue); font-size:1.2em; font-family:'Cinzel',serif; }
+.part-divider{ padding-top:80px; text-align:center; position:relative; }
+.part-divider::before{
+  content:""; display:block; width:60px; height:1px; background:var(--gold); margin: 0 auto 24px;
 }
 .part-divider h2{
-  color: var(--gold); background: var(--blue-deep); display:inline-block;
-  padding: 14px 40px; border-radius: 4px; border:none; font-size:1.4em;
+  color: var(--gold-bright); background: linear-gradient(135deg, var(--blue-deep), var(--red-deep));
+  display:inline-block; padding: 16px 46px; border: 1px solid var(--gold);
+  font-size:1.35em; letter-spacing:2px; box-shadow: 0 6px 24px rgba(0,0,0,0.25);
 }
 
 blockquote{
-  border-left: 3px solid var(--red); margin: 24px 0; padding: 4px 24px;
-  font-style: italic; color: var(--blue-deep);
+  border-left: 3px solid var(--red); margin: 26px 0; padding: 6px 26px;
+  font-style: italic; color: var(--blue-deep); font-family:'Cormorant Garamond', serif; font-size:1.15em;
+  background: rgba(28,58,94,0.04);
 }
 
 .figure{ margin: 32px 0; text-align:center; }
-.figure img{ max-width:100%; border-radius:4px; border: 1px solid var(--gold); }
-.figure figcaption{ font-size:0.85em; color: var(--stone); margin-top:8px; }
+.figure img{ max-width:100%; border-radius:2px; border: 1px solid var(--gold); }
+.figure figcaption{ font-size:0.85em; color: var(--stone); margin-top:8px; font-style:italic; }
+
+.pull-quote{
+  font-size: 1.6em; font-family:'Cormorant Garamond', serif; font-style: italic; font-weight:500;
+  color: var(--blue-deep); text-align:center; max-width:560px; margin: 48px auto;
+  line-height:1.4; position:relative; padding: 10px 20px;
+  border-top: 1px solid var(--gold); border-bottom: 1px solid var(--gold);
+}
+.pull-quote::before{ content:"“"; color: var(--red); font-size:1.5em; opacity:0.7; }
 
 .sources{
-  columns: 2; column-gap: 40px; margin-top: 20px;
+  columns: 2; column-gap: 44px; margin-top: 20px;
 }
-.sources h3{ column-span: all; color: var(--blue); }
+.sources h3{ column-span: all; color: var(--blue); border-bottom:1px solid rgba(28,58,94,0.2); padding-bottom:6px; margin-top:28px; }
 .sources ul{ padding-left:18px; margin:0 0 20px; break-inside: avoid; }
 .sources li{ margin-bottom:10px; font-size:0.92em; }
 
 footer{
-  background: var(--blue-deep); color: var(--parchment);
-  text-align:center; padding: 40px 20px 60px; margin-top:60px;
+  background: radial-gradient(ellipse at 50% -30%, #16283f, var(--blue-deep) 60%);
+  color: var(--parchment);
+  text-align:center; padding: 48px 20px 64px; margin-top:70px;
+  border-top: 3px solid var(--gold);
 }
-footer a{ color: var(--gold); }
+footer a{ color: var(--gold-bright); }
 footer .license{ font-size:0.85em; color:#9aa8ba; max-width:600px; margin:16px auto 0; }
-.pull-quote{
-  font-size: 1.5em; font-family: Georgia, serif; font-style: italic;
-  color: var(--blue-deep); text-align:center; max-width:560px; margin: 44px auto;
-  line-height:1.4; position:relative; padding: 0 20px;
-}
-.pull-quote::before{ content:"“"; color: var(--red); font-size:1.6em; opacity:0.6; }
-.epigraph{
-  text-align:center; font-style:italic; color: var(--parchment); opacity:0.85;
-  max-width:520px; margin: 0 auto; padding-top: 18px; font-size:1.05em;
+
+@media (max-width: 640px){
+  body{ font-size:16.5px; }
+  .title-block h1{ font-size:2.2em; letter-spacing:1px; }
+  .section-index{ padding:24px 20px; }
+  .sources{ columns:1; }
+  .lede p:first-of-type::first-letter{ font-size:2.8em; }
 }
 </style>
 </head>
@@ -249,6 +333,46 @@ footer .license{ font-size:0.85em; color:#9aa8ba; max-width:600px; margin:16px a
 <p>That gap — between the objective position and the subjective collapse — is the subject of this piece. It runs through Goethe's <em>Faust</em>, through the clinical literature on narcissistic extraction and self-erasure in relationships, through the neuroscience of threat perception, and through the very old philosophical problem of how a person keeps their head when the room has been engineered to make them lose it. The painting turns out to be a diagram of all of it — a single frozen moment that, looked at closely enough, contains a theology, a chess puzzle, a clinical case study, and an escape route, all sitting quietly on top of the same forty square inches of canvas.</p>
 </section>
 
+<figure class="figure" style="margin: 44px auto;">
+<svg viewBox="0 0 700 210" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Roadmap of the article's seven parts, from the painting through neuroscience to self-mastery">
+<rect width="700" height="210" fill="#f3ece0"/>
+<line x1="40" y1="105" x2="660" y2="105" stroke="#c9a15f" stroke-width="2"/>
+<g font-family="EB Garamond, serif" font-size="11.5" fill="#201a15">
+<circle cx="60" cy="105" r="7" fill="#9a1c22"/>
+<text x="60" y="130" text-anchor="middle">I</text>
+<text x="60" y="150" text-anchor="middle" font-size="10.5">Painting</text>
+
+<circle cx="155" cy="105" r="7" fill="#9a1c22"/>
+<text x="155" y="130" text-anchor="middle">II</text>
+<text x="155" y="150" text-anchor="middle" font-size="10.5">Board</text>
+
+<circle cx="250" cy="105" r="7" fill="#9a1c22"/>
+<text x="250" y="130" text-anchor="middle">III</text>
+<text x="250" y="150" text-anchor="middle" font-size="10.5">Devil</text>
+
+<circle cx="345" cy="105" r="7" fill="#1c3a5e"/>
+<text x="345" y="130" text-anchor="middle">IV</text>
+<text x="345" y="150" text-anchor="middle" font-size="10.5">Relationships</text>
+
+<circle cx="440" cy="105" r="7" fill="#1c3a5e"/>
+<text x="440" y="130" text-anchor="middle">V</text>
+<text x="440" y="150" text-anchor="middle" font-size="10.5">Neuroscience</text>
+
+<circle cx="535" cy="105" r="7" fill="#1c3a5e"/>
+<text x="535" y="130" text-anchor="middle">VI</text>
+<text x="535" y="150" text-anchor="middle" font-size="10.5">Metagame</text>
+
+<circle cx="640" cy="105" r="8" fill="#c9a15f"/>
+<text x="640" y="130" text-anchor="middle" font-weight="700">VII</text>
+<text x="640" y="150" text-anchor="middle" font-size="10.5">Escape</text>
+</g>
+<text x="350" y="30" text-anchor="middle" font-family="Cinzel, serif" font-size="14" fill="#3a3630" letter-spacing="1">FROM CANVAS TO SELF-MASTERY</text>
+<text x="60" y="80" text-anchor="middle" font-size="16">&#9876;</text>
+<text x="640" y="76" text-anchor="middle" font-size="18">&#10022;</text>
+</svg>
+<figcaption>The seven-part arc this article follows — from a single 1831 canvas outward to a general theory of composure under pressure.</figcaption>
+</figure>
+
 <nav class="section-index" id="index" aria-label="Table of contents">
 <h2>Chapters</h2>
 <ol>
@@ -296,6 +420,7 @@ footer .license{ font-size:0.85em; color:#9aa8ba; max-width:600px; margin:16px a
 
 <li class="part-title">Part VI — The Metagame</li>
 <li><a href="#ch33">Schiller's Three Drives: Stofftrieb, Formtrieb, Spieltrieb</a></li>
+<li><a href="#ch33b">Plato's Chariot: The Charioteer and the Two Horses</a></li>
 <li><a href="#ch34">The Actual Game vs. the Meta Game</a></li>
 <li><a href="#ch35">Rule by Nobody: Administrative Noise as the Modern Devil</a></li>
 <li><a href="#ch36">Finite and Infinite Games</a></li>
@@ -351,6 +476,42 @@ footer .license{ font-size:0.85em; color:#9aa8ba; max-width:600px; margin:16px a
 <p>Satan's king is the Devil himself. His queen is Pleasure — a voluptuous, sensual figure pressing forward as the most active attacking piece. His bishops are Falsehood, hiding a dagger behind a hand pressed to the heart, and Pride, strutting with a peacock's tail. His knights are Avarice and Envy, gnawing at their own hands while clutching gold, and Unbelief, a horned figure trampling a cross. His rooks are Indolence, rendered as a heavy swine. His pawns are Doubts — small, bat-winged, sharp-toothed creatures.</p>
 <p>The young man's king is his own Psyche, crowned not with a coronet but with butterfly wings — the Greek <em>psyche</em> meaning, simultaneously, soul and butterfly, a small but exact piece of etymology doing the heaviest symbolic lifting in the whole composition. His queen is Religion, or Faith, the most powerful defensive piece on the board. His bishops are Peace and Humility; his knights, Innocence and Charity; his rooks, Hope and Truth. His pawns are Prayers, rendered as cherub heads lifted in worship.</p>
 <p>Satan has already captured Humility, Innocence, and Peace, and is in the act of removing another piece as the scene is frozen. The young man has captured only Anger and a single Doubt. On raw material count, it looks like a rout. It is not — a distinction the next several chapters take seriously.</p>
+
+<figure class="figure">
+<svg viewBox="0 0 700 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram of the two armies of virtues and vices as assigned by Miltitz's key">
+<rect x="0" y="0" width="700" height="360" fill="#f3ece0"/>
+<line x1="350" y1="10" x2="350" y2="350" stroke="#c9a15f" stroke-width="1.5" stroke-dasharray="4 5"/>
+<text x="175" y="34" text-anchor="middle" font-family="Cinzel, serif" font-size="17" fill="#9a1c22" font-weight="700">SATAN'S ARMY</text>
+<text x="525" y="34" text-anchor="middle" font-family="Cinzel, serif" font-size="17" fill="#1c3a5e" font-weight="700">THE YOUTH'S ARMY</text>
+
+<g font-family="EB Garamond, serif" font-size="14.5" fill="#201a15">
+<text x="30" y="70"><tspan font-weight="700" fill="#9a1c22">King</tspan> — The Devil himself</text>
+<text x="30" y="97"><tspan font-weight="700" fill="#9a1c22">Queen</tspan> — Pleasure (sensuality)</text>
+<text x="30" y="124"><tspan font-weight="700" fill="#9a1c22">Bishops</tspan> — Falsehood &amp; Pride</text>
+<text x="30" y="151"><tspan font-weight="700" fill="#9a1c22">Knights</tspan> — Avarice/Envy &amp; Unbelief</text>
+<text x="30" y="178"><tspan font-weight="700" fill="#9a1c22">Rooks</tspan> — Indolence (sloth)</text>
+<text x="30" y="205"><tspan font-weight="700" fill="#9a1c22">Pawns</tspan> — Doubts</text>
+
+<text x="370" y="70"><tspan font-weight="700" fill="#1c3a5e">King</tspan> — Psyche (the soul)</text>
+<text x="370" y="97"><tspan font-weight="700" fill="#1c3a5e">Queen</tspan> — Religion / Faith</text>
+<text x="370" y="124"><tspan font-weight="700" fill="#1c3a5e">Bishops</tspan> — Peace &amp; Humility</text>
+<text x="370" y="151"><tspan font-weight="700" fill="#1c3a5e">Knights</tspan> — Innocence &amp; Charity</text>
+<text x="370" y="178"><tspan font-weight="700" fill="#1c3a5e">Rooks</tspan> — Hope &amp; Truth</text>
+<text x="370" y="205"><tspan font-weight="700" fill="#1c3a5e">Pawns</tspan> — Prayers</text>
+</g>
+
+<rect x="20" y="235" width="300" height="95" fill="none" stroke="#9a1c22" stroke-width="1" opacity="0.5"/>
+<text x="35" y="258" font-family="Cinzel, serif" font-size="12.5" fill="#9a1c22" font-weight="700">CAPTURED SO FAR</text>
+<text x="35" y="280" font-family="EB Garamond, serif" font-size="13.5" fill="#201a15">Humility, Innocence, Peace</text>
+<text x="35" y="300" font-family="EB Garamond, serif" font-size="12" fill="#3a3630" font-style="italic">(peripheral virtues — not the king)</text>
+
+<rect x="360" y="235" width="300" height="95" fill="none" stroke="#1c3a5e" stroke-width="1" opacity="0.5"/>
+<text x="375" y="258" font-family="Cinzel, serif" font-size="12.5" fill="#1c3a5e" font-weight="700">CAPTURED SO FAR</text>
+<text x="375" y="280" font-family="EB Garamond, serif" font-size="13.5" fill="#201a15">Anger, one Doubt</text>
+<text x="375" y="300" font-family="EB Garamond, serif" font-size="12" fill="#3a3630" font-style="italic">Faith, Hope, Truth still active</text>
+</svg>
+<figcaption>The two armies as defined in Carl von Miltitz's 1836 explanatory key. Note what Satan has actually captured — and what he hasn't.</figcaption>
+</figure>
 </article>
 
 <article class="chapter" id="ch5">
@@ -376,6 +537,7 @@ footer .license{ font-size:0.85em; color:#9aa8ba; max-width:600px; margin:16px a
 <h2>8. Checkmate vs. Die Schachspieler: How a Title Rewrote the Painting</h2>
 <p>Retzsch's own title, <em>Die Schachspieler</em> — The Chess Players — describes a process: two people, mid-decision, still playing. When Victorian publishers reissued the engraving in Britain and America, they retitled it <em>Checkmate</em>. That single word converts an open, ongoing contest into a stated, finished outcome, before the viewer has looked at a single square.</p>
 <p>This is worth taking seriously as more than a marketing choice. Structuralist and post-structuralist thought — Jacques Lacan's account of how a name forecloses the field of meaning available to a thing, Jacques Derrida's argument that naming conditions what can subsequently be thought about the thing named — gives a precise vocabulary for what happened here. The retitling performed a small act of interpretive violence on the painting. It told nearly two centuries of viewers what to conclude before they had done any of their own looking. Which is, not coincidentally, exactly the strategy the Devil is using against the young man inside the frame.</p>
+<p>In everyday terms: calling something by a name that already contains the verdict makes it much harder for anyone to look past that name and check the verdict themselves. "Checkmate" doesn't describe the painting — it tells you how to feel about the painting before you've even seen it, and most people, understandably, never bother to check the label against the actual position.</p>
 </article>
 
 <!-- PART II -->
@@ -392,6 +554,46 @@ footer .license{ font-size:0.85em; color:#9aa8ba; max-width:600px; margin:16px a
 <h2>10. Overextension: How the Devil's Attack Exposes Itself</h2>
 <p>In chess tactics, a rapid, heavy-piece assault that fails to coordinate with a solid supporting structure is called overextension — and it is exactly what Satan's position shows. He has thrown his attacking pieces forward to strip the youth of peripheral virtues (Humility, Innocence, Peace), spending several tempi on captures that look devastating but leave his own back rank thin. The youth's major defenders — Faith, the queen; Truth and Hope, the rooks — remain undeveloped but intact, sitting in reserve exactly where a counter-attack would need them.</p>
 <p>This is the recurring shape of manipulation generally: an assault that is loud, fast, and visually total, purchased at the cost of a structural weakness the aggressor is counting on nobody calm enough to notice.</p>
+
+<figure class="figure">
+<svg viewBox="0 0 700 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram contrasting the perceived board state with the actual board state">
+<rect width="700" height="300" fill="#f3ece0"/>
+<text x="350" y="32" text-anchor="middle" font-family="Cinzel, serif" font-size="16" fill="#201a15" font-weight="700">PERCEIVED VS. ACTUAL POSITION</text>
+
+<rect x="30" y="55" width="290" height="200" fill="rgba(154,28,34,0.06)" stroke="#9a1c22" stroke-width="1"/>
+<text x="175" y="82" text-anchor="middle" font-family="Cinzel, serif" font-size="13" fill="#9a1c22" font-weight="700">WHAT THE YOUTH SEES</text>
+<text x="55" y="112" font-family="EB Garamond, serif" font-size="14" fill="#201a15">• Captured pieces piled on the rim</text>
+<text x="55" y="138" font-family="EB Garamond, serif" font-size="14" fill="#201a15">• Satan leaning forward, smirking</text>
+<text x="55" y="164" font-family="EB Garamond, serif" font-size="14" fill="#201a15">• A red cloak crowding the table</text>
+<text x="55" y="190" font-family="EB Garamond, serif" font-size="14" fill="#201a15">• A hand pointing at his king</text>
+<text x="55" y="228" font-family="EB Garamond, serif" font-size="15" fill="#9a1c22" font-weight="700" font-style="italic">Conclusion: already lost</text>
+
+<rect x="380" y="55" width="290" height="200" fill="rgba(28,58,94,0.06)" stroke="#1c3a5e" stroke-width="1"/>
+<text x="525" y="82" text-anchor="middle" font-family="Cinzel, serif" font-size="13" fill="#1c3a5e" font-weight="700">WHAT THE BOARD SHOWS</text>
+<text x="405" y="112" font-family="EB Garamond, serif" font-size="14" fill="#201a15">• Faith (queen) undeveloped, active</text>
+<text x="405" y="138" font-family="EB Garamond, serif" font-size="14" fill="#201a15">• Hope &amp; Truth (rooks) intact</text>
+<text x="405" y="164" font-family="EB Garamond, serif" font-size="14" fill="#201a15">• Satan's back rank thin, overextended</text>
+<text x="405" y="190" font-family="EB Garamond, serif" font-size="14" fill="#201a15">• A legal counter-check available</text>
+<text x="405" y="228" font-family="EB Garamond, serif" font-size="15" fill="#1c3a5e" font-weight="700" font-style="italic">Conclusion: still in progress</text>
+
+<path d="M320 155 L380 155" stroke="#c9a15f" stroke-width="2" marker-end="url(#arrow)"/>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#c9a15f"/></marker></defs>
+</svg>
+<figcaption>The theatrical layer Satan projects, set against the mathematical layer the pieces actually describe.</figcaption>
+</figure>
+
+<p>A concrete, worked example helps make this less abstract. Take a reconstructed board state consistent with the kind of position chess historians have tried to derive from the painting — Black (Satan) has thrown forward two rooks, two bishops, a knight, and a queen, and stripped White (the youth) down to a lone queen, one rook, one bishop, and two pawns:</p>
+
+<figure class="figure">
+<img src="chess-position.png" alt="A reconstructed chess position: White has king d1, queen a1, rook e2, bishop h1, pawns a2 and d3; Black has king d8, rooks c7 and g5, bishops g3 and g6, knight a5, queen d4, pawns a3, b6, and f6" style="max-width:420px; width:100%;">
+<figcaption>On material alone, White looks finished — down a rook, a bishop, and a knight. But look at the a1–d4 diagonal.</figcaption>
+</figure>
+
+<p>By raw piece count this looks like precisely the kind of rout the young man believes he is facing: White is down a full rook, a bishop, and a knight, with Black's queen sitting aggressively in the center of the board on d4. Anyone scanning the position the way the young man is scanning his own — tallying losses, reading the opponent's most advanced piece as proof of dominance — would conclude the game is effectively over.</p>
+<p>It isn't. White's queen, sitting on a1, and Black's queen, sitting on d4, occupy the same open diagonal — a1, b2, c3, d4 — and nothing stands between them. <strong>Qa1xd4</strong> is a fully legal move, and nothing recaptures: Black's queen is simply hanging. One move erases the entire material deficit at a stroke, converting a position that looked catastrophic into one that is, materially, dead even or better.</p>
+<p>The reason a piece this valuable can be left this exposed is the same reason Satan's attack overextends in the painting itself: an assault built entirely around forward pressure has no attention left over for its own rear guard. Every one of Black's pieces in this position is committed to the attack — rooks advanced, bishops advanced, the knight pushed to the rim, the queen thrust into the center — and in the rush to finish the young man off quickly, nobody checked whether the queen's own diagonal was covered. Speed was the method and speed was the vulnerability; the position needed to look overwhelming faster than it needed to actually be sound.</p>
+<p>That rush is also precisely what keeps the young man from finding the move. A player under sustained pressure — captures mounting, a clock (real or psychological) ticking, an opponent radiating certainty — searches for the safest available response, not the best one. The instinct under threat is defense: shore up the king, minimize further losses, survive the next exchange. Spotting <strong>Qxd4</strong> requires doing the opposite of what panic recommends: ignoring the material already lost, ignoring the pieces still bearing down, and scanning the board for what the attacker left undefended in his hurry — a search that only works if it is unhurried, which is the one thing an intimidated player rarely feels permission to be.</p>
+<p>The allegory does not need much translation at this point. Satan does not actually have a sound position; he has a fast one, and he is counting on the young man mistaking speed and volume for soundness. Every virtue captured, every piece thrown forward, every second of manufactured urgency is doing double duty — it advances the attack, and it makes the position harder to audit calmly enough to find the flaw in it. The queen left hanging on d4 is not a mistake in the ordinary sense. It is the cost of choosing intimidation over care, paid by an adversary who is gambling that no one under this much pressure will ever slow down enough to notice.</p>
 </article>
 
 <article class="chapter" id="ch11">
@@ -442,6 +644,33 @@ footer .license{ font-size:0.85em; color:#9aa8ba; max-width:600px; margin:16px a
 <blockquote>Be sober, be vigilant; because your adversary the devil walks about like a roaring lion, seeking whom he may devour. — 1 Peter 5:8</blockquote>
 <p>The Greek is worth slowing down on. <em>Nēpsate</em> — "be sober" — literally means free from the influence of intoxicants, a state of undistorted judgment. <em>Grēgorēsate</em> — "be vigilant" — means to stay actively awake rather than slide into a passive stupor. <em>Peripatei</em>, "walking about," describes reconnaissance: predatory figures do not strike blind, they study a perimeter first, testing for isolation, exhaustion, or an absent support structure. <em>Katapiein</em>, "to devour," specifically means to swallow whole — total absorption of the target as a separate entity, not injury but dissolution.</p>
 <p>The early ascetic tradition built an entire clinical psychology out of this single verse, most fully in the concept of <em>nēpsis</em> (watchfulness) developed by writers collected in the <em>Philokalia</em>. They mapped a predatory thought's approach in three stages: <em>prosbolē</em>, the bait — an initial, harmless-looking suggestion; <em>syndyasmos</em>, the dialogue — engaging and negotiating with it; and <em>synkatathesis</em>, consent — the formal yielding that leads to captivity. Their prescription was to interrupt at the first stage, before any negotiation begins, because negotiation with a predatory proposal is already most of the way to losing.</p>
+
+<figure class="figure">
+<svg viewBox="0 0 700 190" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram of the three-stage escalation of a predatory thought: prosbole, syndyasmos, synkatathesis">
+<rect width="700" height="190" fill="#f3ece0"/>
+<text x="350" y="28" text-anchor="middle" font-family="Cinzel, serif" font-size="15" fill="#201a15" font-weight="700">THE ESCALATION OF A PREDATORY THOUGHT</text>
+
+<circle cx="120" cy="105" r="50" fill="rgba(28,58,94,0.08)" stroke="#1c3a5e" stroke-width="1.5"/>
+<text x="120" y="100" text-anchor="middle" font-family="Cinzel, serif" font-size="13" fill="#1c3a5e" font-weight="700">PROSBOLĒ</text>
+<text x="120" y="118" text-anchor="middle" font-family="EB Garamond, serif" font-size="11.5" fill="#201a15">the bait</text>
+
+<path d="M180 105 L255 105" stroke="#c9a15f" stroke-width="2" marker-end="url(#arrow2)"/>
+
+<circle cx="350" cy="105" r="55" fill="rgba(154,28,34,0.06)" stroke="#9a1c22" stroke-width="1.5"/>
+<text x="350" y="100" text-anchor="middle" font-family="Cinzel, serif" font-size="13" fill="#9a1c22" font-weight="700">SYNDYASMOS</text>
+<text x="350" y="118" text-anchor="middle" font-family="EB Garamond, serif" font-size="11.5" fill="#201a15">the negotiation</text>
+
+<path d="M415 105 L480 105" stroke="#c9a15f" stroke-width="2" marker-end="url(#arrow2)"/>
+
+<circle cx="580" cy="105" r="60" fill="rgba(74,14,18,0.12)" stroke="#4a0e12" stroke-width="1.5"/>
+<text x="580" y="100" text-anchor="middle" font-family="Cinzel, serif" font-size="13" fill="#4a0e12" font-weight="700">SYNKATATHESIS</text>
+<text x="580" y="118" text-anchor="middle" font-family="EB Garamond, serif" font-size="11.5" fill="#201a15">consent — captivity</text>
+
+<defs><marker id="arrow2" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#c9a15f"/></marker></defs>
+<text x="120" y="172" text-anchor="middle" font-family="EB Garamond, serif" font-size="11" fill="#3a3630" font-style="italic">interrupt here</text>
+</svg>
+<figcaption>The <em>Philokalia</em>'s three-stage model of temptation. Nēpsis means catching the thought at the first circle, before it has a chance to talk.</figcaption>
+</figure>
 </article>
 
 <article class="chapter" id="ch19">
@@ -455,6 +684,29 @@ footer .license{ font-size:0.85em; color:#9aa8ba; max-width:600px; margin:16px a
 <article class="chapter" id="ch20">
 <h2>20. Trading the Soul for Belonging: Why the Deal Targets Youth</h2>
 <p>Retzsch did not paint an exhausted elder scholar like the literary Faust; he painted a young man at the threshold of adulthood, and the choice tracks real developmental vulnerability. Laurence Steinberg's dual-systems model of adolescent brain development shows that the limbic system, which drives reward-seeking and emotional intensity, matures years ahead of the prefrontal cortex, which governs long-term risk calculation and impulse control — leaving a "maturity gap" in which the pull of an immediate reward is felt at full strength before the neurological brakes are fully wired. Erik Erikson's identity-versus-role-confusion stage describes the same window from a different angle: before a coherent identity has consolidated, the ambiguity of an open future can feel unbearable, and a predatory figure offering a ready-made identity — belonging, mastery, status, all pre-packaged — fills a vacuum that has not yet learned to tolerate itself. Peter Blos's account of a "second individuation," the emotional separation from family that adolescence requires, describes the resulting support gap: someone stepping away from childhood structures without yet having built adult ones is, for a period, uniquely exposed to a figure presenting as protector or mentor.</p>
+
+<figure class="figure">
+<svg viewBox="0 0 700 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram of Steinberg's dual-systems maturity gap, showing the limbic system maturing years ahead of the prefrontal cortex">
+<rect width="700" height="220" fill="#f3ece0"/>
+<text x="350" y="26" text-anchor="middle" font-family="Cinzel, serif" font-size="15" fill="#201a15" font-weight="700">STEINBERG'S "MATURITY GAP"</text>
+
+<line x1="60" y1="180" x2="640" y2="180" stroke="#3a3630" stroke-width="1"/>
+<text x="60" y="200" font-family="EB Garamond, serif" font-size="11" fill="#3a3630">age 10</text>
+<text x="620" y="200" font-family="EB Garamond, serif" font-size="11" fill="#3a3630">age 25</text>
+
+<path d="M60 150 Q220 60 360 55 L640 55" stroke="#9a1c22" stroke-width="2.5" fill="none"/>
+<text x="360" y="40" text-anchor="middle" font-family="Cinzel, serif" font-size="12.5" fill="#9a1c22" font-weight="700">LIMBIC SYSTEM</text>
+<text x="360" y="90" text-anchor="middle" font-family="EB Garamond, serif" font-size="11" fill="#9a1c22" font-style="italic">reward-seeking, matures early</text>
+
+<path d="M60 170 Q400 165 640 90" stroke="#1c3a5e" stroke-width="2.5" fill="none"/>
+<text x="500" y="145" text-anchor="middle" font-family="Cinzel, serif" font-size="12.5" fill="#1c3a5e" font-weight="700">PREFRONTAL CORTEX</text>
+<text x="500" y="162" text-anchor="middle" font-family="EB Garamond, serif" font-size="11" fill="#1c3a5e" font-style="italic">risk-brakes, matures late</text>
+
+<rect x="300" y="45" width="140" height="120" fill="rgba(201,161,95,0.15)" stroke="#c9a15f" stroke-width="1" stroke-dasharray="3 3"/>
+<text x="370" y="205" text-anchor="middle" font-family="Cinzel, serif" font-size="11.5" fill="#8a6a2f" font-weight="700">THE GAP — peak vulnerability</text>
+</svg>
+<figcaption>The window in which reward-seeking is fully online but the neurological brakes are not — exactly the age Retzsch chose to paint.</figcaption>
+</figure>
 </article>
 
 <article class="chapter" id="ch21">
@@ -471,6 +723,7 @@ footer .license{ font-size:0.85em; color:#9aa8ba; max-width:600px; margin:16px a
 <article class="chapter" id="ch23">
 <h2>23. The Investment Model: Sunk Cost and Why People Stay</h2>
 <p>Caryl Rusbult's Investment Model of Commitment, developed across the 1980s, found that whether people stay in a relationship correlates less with satisfaction than with the size of the resources already sunk into it — time, severed outside friendships, shared history that cannot be un-lived. Each individual concession, in this framework, functions as a non-retrievable investment; walking away later would mean admitting all of it was spent on something that was never going to pay out, which is a harder admission than simply making one more concession. This is the sunk-cost fallacy operating on a relationship rather than a financial position, and it explains a great deal about why the exit gets harder exactly as the reasons to leave accumulate, rather than easier.</p>
+<p>The short version: the longer someone stays in a bad situation, the harder it becomes to leave — not because the situation improves, but because leaving would mean admitting that everything already spent on it was wasted, and that admission gets more painful the more has been spent. It's the same reasoning that keeps people finishing a bad movie because they already sat through half of it, just applied to years instead of minutes.</p>
 </article>
 
 <article class="chapter" id="ch24">
@@ -486,6 +739,34 @@ footer .license{ font-size:0.85em; color:#9aa8ba; max-width:600px; margin:16px a
 <article class="chapter" id="ch26">
 <h2>26. The Karpman Triangle</h2>
 <p>Stephen Karpman's 1968 drama triangle maps three interlocking roles that recur across dysfunctional dynamics: Persecutor, Rescuer, and Victim. What makes the model useful here is that Mephistopheles occupies all three across the arc of the Faust story, often in quick succession. He enters as Rescuer, offering relief from an intolerable academic and existential burnout. He becomes an enabler, granting favors that deepen dependence. And whenever Faust tries to repent or reach for outside connection, he shifts abruptly into Persecutor, enforcing the contract through threat. The target rarely experiences this as three different figures; they experience it as one relationship that keeps inexplicably changing shape, which is precisely what keeps them from being able to build a stable, accurate model of who they are actually dealing with.</p>
+
+<figure class="figure">
+<svg viewBox="0 0 500 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Karpman Drama Triangle diagram showing Rescuer, Persecutor, and Victim roles rotating around Mephistopheles">
+<rect width="500" height="420" fill="#f3ece0"/>
+<polygon points="250,50 60,340 440,340" fill="none" stroke="#c9a15f" stroke-width="1.5"/>
+<path d="M180 130 A150 150 0 0 1 320 130" stroke="#9a1c22" stroke-width="1.5" fill="none" marker-end="url(#arrow3)" stroke-dasharray="3 4"/>
+<path d="M370 300 A150 150 0 0 1 220 380" stroke="#9a1c22" stroke-width="1.5" fill="none" marker-end="url(#arrow3)" stroke-dasharray="3 4" transform="translate(-90,-90)"/>
+<defs><marker id="arrow3" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto"><path d="M0 0 L7 3.5 L0 7 z" fill="#9a1c22"/></marker></defs>
+
+<circle cx="250" cy="50" r="34" fill="rgba(201,161,95,0.18)" stroke="#c9a15f" stroke-width="2"/>
+<text x="250" y="46" text-anchor="middle" font-family="Cinzel, serif" font-size="12.5" fill="#8a6a2f" font-weight="700">RESCUER</text>
+<text x="250" y="60" text-anchor="middle" font-family="EB Garamond, serif" font-size="10" fill="#3a3630" font-style="italic">relief from burnout</text>
+
+<circle cx="60" cy="340" r="34" fill="rgba(154,28,34,0.1)" stroke="#9a1c22" stroke-width="2"/>
+<text x="60" y="336" text-anchor="middle" font-family="Cinzel, serif" font-size="12.5" fill="#9a1c22" font-weight="700">PERSECUTOR</text>
+<text x="60" y="350" text-anchor="middle" font-family="EB Garamond, serif" font-size="10" fill="#3a3630" font-style="italic">enforces the contract</text>
+
+<circle cx="440" cy="340" r="34" fill="rgba(28,58,94,0.1)" stroke="#1c3a5e" stroke-width="2"/>
+<text x="440" y="336" text-anchor="middle" font-family="Cinzel, serif" font-size="12.5" fill="#1c3a5e" font-weight="700">ENABLER</text>
+<text x="440" y="350" text-anchor="middle" font-family="EB Garamond, serif" font-size="10" fill="#3a3630" font-style="italic">deepens dependence</text>
+
+<text x="250" y="235" text-anchor="middle" font-family="Cinzel, serif" font-size="13" fill="#201a15" font-weight="700">MEPHISTOPHELES</text>
+<text x="250" y="252" text-anchor="middle" font-family="EB Garamond, serif" font-size="11" fill="#3a3630" font-style="italic">rotates through all three</text>
+
+<text x="250" y="405" text-anchor="middle" font-family="EB Garamond, serif" font-size="12.5" fill="#201a15">Faust: the constant Victim</text>
+</svg>
+<figcaption>Karpman's triangle applied to a single adversary who cycles through every role, keeping the target unable to form a stable read on the relationship.</figcaption>
+</figure>
 </article>
 
 <!-- PART V -->
@@ -494,26 +775,94 @@ footer .license{ font-size:0.85em; color:#9aa8ba; max-width:600px; margin:16px a
 <article class="chapter" id="ch27">
 <h2>27. The Rustling Bush: Error Management Theory</h2>
 <p>Martie Haselton and David Buss's Error Management Theory (2000) starts from a simple asymmetry: when facing uncertainty, a false positive — assuming a rustling bush is a predator when it's only wind — costs almost nothing, while a false negative — assuming it's only wind when it's actually a predator — can cost a life. Evolution, ruthlessly, selects for the cheaper mistake. The human nervous system we inherited is therefore not tuned for statistical accuracy; it is tuned to sound the alarm early and often, on the theory that a hundred false alarms are a survivable price for catching the one real threat. This is often called the smoke-detector principle, and it is a straightforward biological explanation for why an ambiguous social signal — a superior's silence, an institution's delay, an adversary's confident smirk — so reliably gets processed as confirmed danger rather than as the ambiguous data point it actually is.</p>
+<p>In plain terms: it is cheaper, evolutionarily speaking, to jump at a hundred shadows than to miss one real threat, so that's the trade the human nervous system was built to make. It means a certain amount of false alarm isn't a personal failing or a sign of anxiety gone wrong — it's the setting the equipment came with. Knowing that doesn't make the alarm stop firing, but it does make it easier to ask, calmly, whether this particular alarm is one of the real ones or one of the many that aren't.</p>
 </article>
 
 <article class="chapter" id="ch28">
 <h2>28. The Low Road: LeDoux and the Amygdala</h2>
 <p>Neuroscientist Joseph LeDoux's research mapped two distinct pathways a threat signal can travel. The "high road" runs from the thalamus through the sensory cortex, where the input is actually analyzed, before reaching the amygdala — slower, but accurate. The "low road" runs directly from thalamus to amygdala, skipping analysis entirely, triggering the physiological panic cascade — elevated heart rate, adrenaline, narrowed attention — before the cortex has had any chance to determine whether the threat is real. This is why acute dread cannot reliably be reasoned away in the moment it is felt: the body's alarm response fires on a faster circuit than the thinking that might have corrected it, which is precisely the gap an adversary relying on intimidation rather than substance is counting on.</p>
+<p>In simpler terms: there are two routes a scary signal can take through the brain, a fast one and a slow one. The fast one skips straight to full-body panic. The slow one actually checks whether the panic is warranted. Because the fast route wins the race every time, the body is often already flooded with adrenaline before the slower, smarter part of the brain has even finished looking at what's happening — which is exactly why "just calm down and think clearly" almost never works in the moment it's needed.</p>
+
+<figure class="figure">
+<svg viewBox="0 0 700 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram of LeDoux's low road and high road neural pathways from threat signal to response">
+<rect width="700" height="240" fill="#f3ece0"/>
+<text x="350" y="26" text-anchor="middle" font-family="Cinzel, serif" font-size="15" fill="#201a15" font-weight="700">TWO ROADS FROM THREAT TO RESPONSE</text>
+
+<circle cx="60" cy="120" r="30" fill="#e9dfcc" stroke="#3a3630" stroke-width="1.5"/>
+<text x="60" y="124" text-anchor="middle" font-family="EB Garamond, serif" font-size="11.5" fill="#201a15">Thalamus</text>
+
+<path d="M92 100 Q220 40 340 60" stroke="#9a1c22" stroke-width="2.5" fill="none" marker-end="url(#arrow4)"/>
+<text x="200" y="45" text-anchor="middle" font-family="Cinzel, serif" font-size="11.5" fill="#9a1c22" font-weight="700">LOW ROAD — fast</text>
+<circle cx="360" cy="65" r="34" fill="rgba(154,28,34,0.12)" stroke="#9a1c22" stroke-width="2"/>
+<text x="360" y="61" text-anchor="middle" font-family="EB Garamond, serif" font-size="11.5" fill="#201a15">Amygdala</text>
+<text x="360" y="75" text-anchor="middle" font-family="EB Garamond, serif" font-size="9.5" fill="#3a3630" font-style="italic">panic cascade</text>
+
+<path d="M92 140 Q220 210 340 195" stroke="#1c3a5e" stroke-width="2" fill="none" marker-end="url(#arrow4)"/>
+<text x="200" y="222" text-anchor="middle" font-family="Cinzel, serif" font-size="11.5" fill="#1c3a5e" font-weight="700">HIGH ROAD — slow, accurate</text>
+<circle cx="360" cy="192" r="34" fill="rgba(28,58,94,0.1)" stroke="#1c3a5e" stroke-width="2"/>
+<text x="360" y="188" text-anchor="middle" font-family="EB Garamond, serif" font-size="11.5" fill="#201a15">Sensory</text>
+<text x="360" y="202" text-anchor="middle" font-family="EB Garamond, serif" font-size="11.5" fill="#201a15">Cortex</text>
+
+<path d="M394 65 Q470 65 470 90" stroke="#9a1c22" stroke-width="2.5" fill="none" marker-end="url(#arrow4)"/>
+<path d="M394 192 Q470 192 470 120" stroke="#1c3a5e" stroke-width="2" fill="none" marker-end="url(#arrow4)"/>
+
+<circle cx="500" cy="120" r="34" fill="rgba(201,161,95,0.18)" stroke="#c9a15f" stroke-width="2"/>
+<text x="500" y="116" text-anchor="middle" font-family="EB Garamond, serif" font-size="11.5" fill="#201a15">Amygdala</text>
+<text x="500" y="130" text-anchor="middle" font-family="EB Garamond, serif" font-size="9.5" fill="#3a3630" font-style="italic">(re-check)</text>
+
+<path d="M534 120 L610 120" stroke="#3a3630" stroke-width="2" marker-end="url(#arrow4)"/>
+<text x="650" y="115" text-anchor="middle" font-family="Cinzel, serif" font-size="12" fill="#201a15" font-weight="700">RESPONSE</text>
+
+<defs><marker id="arrow4" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#3a3630"/></marker></defs>
+</svg>
+<figcaption>The low road fires the body's alarm before the high road has finished checking whether the alarm is warranted — a structural, not a moral, failing.</figcaption>
+</figure>
 </article>
 
 <article class="chapter" id="ch29">
 <h2>29. Loss Aversion and the Captured Pieces</h2>
 <p>Daniel Kahneman and Amos Tversky's Prospect Theory (1979) found that losses are felt, on average, about twice as intensely as equivalent gains — a asymmetry now generally called loss aversion. Applied to the painting, it explains precisely where the young man's attention has gone wrong: he is staring at the captured pieces piled on the sarcophagus rim — Innocence, Peace, Humility, already gone — instead of assessing the strategic value of what remains in play. His cognition has been captured by the losses already sustained rather than allocated toward the resources still available to him, which is exactly the distribution of attention loss aversion predicts and exactly the distribution an opponent relying on visible captures, rather than actual position, would want to induce.</p>
+<p>To put it plainly: losing something hurts roughly twice as much as gaining the same thing feels good, which means a person can be sitting on a genuinely strong position and still feel wrecked, simply because their attention has locked onto what's already gone rather than what's still theirs. The captured pieces aren't more important than the pieces still in play — they just feel that way, and feeling that way is enough to make someone stop looking at the board correctly.</p>
+
+<figure class="figure">
+<svg viewBox="0 0 600 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Kahneman and Tversky's prospect theory value function, showing losses felt more steeply than equivalent gains">
+<rect width="600" height="380" fill="#f3ece0"/>
+<text x="300" y="26" text-anchor="middle" font-family="Cinzel, serif" font-size="15" fill="#201a15" font-weight="700">THE PROSPECT THEORY VALUE FUNCTION</text>
+
+<line x1="60" y1="190" x2="540" y2="190" stroke="#3a3630" stroke-width="1"/>
+<line x1="300" y1="40" x2="300" y2="340" stroke="#3a3630" stroke-width="1"/>
+<text x="545" y="194" font-family="EB Garamond, serif" font-size="12" fill="#3a3630">gains</text>
+<text x="255" y="52" font-family="EB Garamond, serif" font-size="12" fill="#3a3630" text-anchor="end">value</text>
+<text x="60" y="205" font-family="EB Garamond, serif" font-size="12" fill="#3a3630">losses</text>
+
+<path d="M60 240 Q180 230 300 190 Q380 90 540 70" stroke="#9a1c22" stroke-width="2.5" fill="none"/>
+
+<circle cx="220" cy="222" r="5" fill="#9a1c22"/>
+<line x1="220" y1="222" x2="220" y2="270" stroke="#9a1c22" stroke-width="1" stroke-dasharray="3 3"/>
+<text x="220" y="290" text-anchor="middle" font-family="EB Garamond, serif" font-size="11.5" fill="#9a1c22">a lost piece</text>
+<text x="220" y="305" text-anchor="middle" font-family="EB Garamond, serif" font-size="11" fill="#9a1c22" font-style="italic">— steep drop</text>
+
+<circle cx="380" cy="128" r="5" fill="#1c3a5e"/>
+<line x1="380" y1="128" x2="380" y2="270" stroke="#1c3a5e" stroke-width="1" stroke-dasharray="3 3"/>
+<text x="380" y="290" text-anchor="middle" font-family="EB Garamond, serif" font-size="11.5" fill="#1c3a5e">an equivalent piece regained</text>
+<text x="380" y="305" text-anchor="middle" font-family="EB Garamond, serif" font-size="11" fill="#1c3a5e" font-style="italic">— shallower rise</text>
+
+<text x="300" y="360" text-anchor="middle" font-family="EB Garamond, serif" font-size="12" fill="#3a3630" font-style="italic">the curve is steeper on the loss side than the gain side</text>
+</svg>
+<figcaption>Kahneman &amp; Tversky's value function: identical magnitudes of gain and loss are not felt as identical — which is exactly why the pieces on the rim outweigh, psychologically, the pieces still in play.</figcaption>
+</figure>
 </article>
 
 <article class="chapter" id="ch30">
 <h2>30. The Predictive Brain: Friston and Hallucinated Reality</h2>
 <p>Neuroscientist Karl Friston's free-energy principle reframes the brain not as a passive recorder of incoming sensory data but as a prediction engine, constantly generating a working model of the world and using new sensory input mainly to correct that model when it's wrong. Under this account, what feels like directly perceiving reality is closer to a controlled, continuously-updated hallucination, checked against the world just often enough to stay roughly calibrated. The practical implication is significant: an environment engineered to be ambiguous, delayed, or theatrical — heavy silence, contradictory signals, manufactured urgency — generates exactly the kind of prediction error the brain is worst equipped to resolve cleanly, and in the resulting uncertainty it tends to default toward whichever model feels most consistent with the threat already primed by earlier chapters in this section.</p>
+<p>Put more directly: the brain is always guessing what's about to happen and only occasionally checking that guess against what's actually happening. Most of the time that shortcut works fine. But hand someone a genuinely confusing situation — an opponent who won't explain himself, a process with no clear next step — and the brain doesn't sit in that confusion and wait for clarity. It fills the gap with whatever story already feels true, which, for someone already primed to expect the worst, is almost always the worst available story.</p>
 </article>
 
 <article class="chapter" id="ch31">
 <h2>31. Freeze: Polyvagal Theory and the Youth's Collapsed Posture</h2>
 <p>Stephen Porges's polyvagal theory describes how the autonomic nervous system escalates its response to threat in stages: first attempts at active engagement, then mobilized fight-or-flight, and — when neither option feels viable — a dorsal vagal shutdown characterized by immobility, numbness, and behavioral collapse. The young man's posture in the painting is a near-clinical illustration of this last stage: slumped shoulders, a hand gripping the temple, fingers frozen just above the board rather than actively engaged with it. He has not chosen passivity as a strategy. His nervous system has concluded that neither fighting nor fleeing is available and has defaulted to shutdown, which is a physiological event, not a character flaw — and one worth naming as such, because it is very often misread as the latter, by both the person experiencing it and the people watching.</p>
+<p>The simpler version: when a threat feels both real and inescapable, the body doesn't ask permission before it shuts things down. It's not laziness and it's not giving up on purpose — it's the nervous system deciding, on its own timetable, that neither pushing back nor walking away is currently on the table, and going quiet instead. Recognizing that as biology rather than weakness is usually the first step toward getting past it.</p>
 </article>
 
 <article class="chapter" id="ch32">
@@ -528,11 +877,82 @@ footer .license{ font-size:0.85em; color:#9aa8ba; max-width:600px; margin:16px a
 <h2>33. Schiller's Three Drives: Stofftrieb, Formtrieb, Spieltrieb</h2>
 <p>Friedrich Schiller's 1795 <em>Letters Upon the Aesthetic Education of Man</em> gives the philosophical architecture that Retzsch, as Schiller's illustrator as much as Goethe's, painted directly onto the canvas. Schiller proposed that human beings are pulled by two opposing drives: the <em>Stofftrieb</em>, or sensuous drive — feeling, immediate sensation, the chaotic pull of appetite and the present moment — and the <em>Formtrieb</em>, or formal drive — reason, abstract law, the desire to impose permanent structure on experience. Neither drive, taken to its extreme, produces a free person: pure Stofftrieb collapses into reactive slavery to impulse, while pure Formtrieb collapses into rigid, joyless, over-intellectualized paralysis — which is, not incidentally, an exact description of the young man's condition in the painting.</p>
 <p>Schiller's proposed reconciliation was the <em>Spieltrieb</em>, the play drive: the state achieved through genuine aesthetic and creative engagement, in which passionate energy is neither suppressed nor allowed to run wild, but structured safely within freely chosen rules — his own example, more or less, is a well-played game. "Man only plays when he is in the fullest sense of the word a human being," Schiller wrote, "and he is only fully a human being when he plays." The young man is losing not because his logic has failed but because he has stopped playing — he is treating the board as a moral execution rather than a live, creative puzzle, and that shift in framing is itself doing more damage than any single piece Satan has captured.</p>
+<p>Said more plainly: pure feeling with no structure turns into chaos, and pure structure with no feeling turns into a cage. Neither one, on its own, lets a person actually function. What Schiller is describing is the narrow middle ground where structure and feeling work together instead of fighting each other — the state most people recognize as being genuinely absorbed in something, rules and all, rather than either flailing or freezing. The young man has landed on the freezing side of that split, which is why the fix isn't "calm down" or "think harder" but something closer to remembering how to actually play.</p>
+<p>The short version of Schiller's argument: too much raw feeling and you're just reacting; too much rigid rule-following and you freeze up entirely. The place where a person actually functions well — creative, resilient, able to respond instead of just enduring — is somewhere in between, and it tends to feel a lot like play. That's not the same as not taking a situation seriously. It's the difference between a mind that's still exploring its options and one that's already decided there aren't any.</p>
+
+<figure class="figure">
+<svg viewBox="0 0 620 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Triangle diagram of Schiller's three drives: Stofftrieb, Formtrieb, and Spieltrieb">
+<rect width="620" height="420" fill="#f3ece0"/>
+<polygon points="310,50 90,340 530,340" fill="none" stroke="#c9a15f" stroke-width="1.5"/>
+
+<circle cx="310" cy="50" r="6" fill="#1c3a5e"/>
+<text x="310" y="30" text-anchor="middle" font-family="Cinzel, serif" font-size="15" fill="#1c3a5e" font-weight="700">FORMTRIEB</text>
+<text x="310" y="18" text-anchor="middle" font-family="EB Garamond, serif" font-size="12" fill="#3a3630" font-style="italic">the formal drive — reason, law, structure</text>
+
+<circle cx="90" cy="340" r="6" fill="#9a1c22"/>
+<text x="90" y="368" text-anchor="middle" font-family="Cinzel, serif" font-size="15" fill="#9a1c22" font-weight="700">STOFFTRIEB</text>
+<text x="90" y="386" text-anchor="middle" font-family="EB Garamond, serif" font-size="12" fill="#3a3630" font-style="italic">the sensuous drive — feeling, appetite</text>
+
+<circle cx="530" cy="340" r="6" fill="#9a1c22"/>
+<text x="530" y="368" text-anchor="middle" font-family="Cinzel, serif" font-size="15" fill="#9a1c22" font-weight="700">RIGID PARALYSIS</text>
+<text x="530" y="386" text-anchor="middle" font-family="EB Garamond, serif" font-size="12" fill="#3a3630" font-style="italic">Formtrieb, unchecked</text>
+
+<circle cx="310" cy="220" r="34" fill="rgba(201,161,95,0.18)" stroke="#c9a15f" stroke-width="2"/>
+<text x="310" y="216" text-anchor="middle" font-family="Cinzel, serif" font-size="14" fill="#8a6a2f" font-weight="700">SPIELTRIEB</text>
+<text x="310" y="232" text-anchor="middle" font-family="EB Garamond, serif" font-size="11" fill="#8a6a2f" font-style="italic">the play drive</text>
+
+<text x="90" y="300" text-anchor="middle" font-family="EB Garamond, serif" font-size="12" fill="#9a1c22" font-style="italic">reactive slavery</text>
+<text x="90" y="316" text-anchor="middle" font-family="EB Garamond, serif" font-size="12" fill="#9a1c22" font-style="italic">to impulse</text>
+
+<text x="310" y="140" text-anchor="middle" font-family="EB Garamond, serif" font-size="13" fill="#201a15">Satan &#8213; pure Stofftrieb</text>
+<text x="420" y="270" text-anchor="middle" font-family="EB Garamond, serif" font-size="13" fill="#201a15">The youth, frozen &#8213;</text>
+<text x="420" y="286" text-anchor="middle" font-family="EB Garamond, serif" font-size="13" fill="#201a15">pure Formtrieb</text>
+</svg>
+<figcaption>Schiller's reconciliation of feeling and reason. The youth is trapped at one vertex; escape means reaching the center, not the opposite corner.</figcaption>
+</figure>
+</article>
+
+<article class="chapter" id="ch33b">
+<h2>33b. Plato's Chariot: The Charioteer and the Two Horses</h2>
+<p>Schiller's two drives have an ancestor nearly twenty-two centuries older, and it gives the painting a structure even more precise than Stofftrieb and Formtrieb alone can supply. In the <em>Phaedrus</em>, Plato has Socrates describe the human soul as a charioteer driving a pair of winged horses. One horse is noble — "upright and clean-limbed," responsive to reason, driven by honor and a sense of shame rather than by appetite. The other is its opposite: a "crooked lumbering animal," deaf to persuasion, yielding only to whip and goad, dragging the chariot toward whatever gratification is nearest. The charioteer's entire task, for as long as the soul remains in this life, is to hold these two in balance — restraining the base horse without breaking the noble one, and steering the whole toward what Plato calls the vision of true being, which the chariot glimpses only when it is driven well.</p>
+<p>The three-part structure maps onto Retzsch's three figures with an exactness that neither Freud's later id-ego-superego model nor Schiller's two-drive model quite achieves on their own, because Plato's schema already has three seats, not two. Satan is the crooked horse — appetite unrestrained, straining toward gratification, needing no persuasion because persuasion is not the language it speaks. The angel occupies something closer to the noble horse's position elevated to its ideal: responsive to reason, oriented toward the good, but — crucially, and this is where the allegory does real interpretive work — not the one holding the reins. The young man is the charioteer, and the entire drama of the painting is the charioteer's dilemma exactly as Plato describes it: not a contest between two external armies fighting over him, but his own struggle to actually drive, when one of his own horses is dragging hard in the wrong direction and he has not yet learned whether he has the strength to hold the line.</p>
+<p>Plato is explicit that the charioteer's task never resolves permanently. The soul does not defeat the base horse once and retire from the work; the tension between the two is described as the soul's ongoing condition, present in every incarnate life, requiring the same discipline applied again and again. Read this way, the young man's paralysis in the painting is not a unique crisis particular to one bad chess game against one bad opponent. It is a single frozen frame from a task that, per Plato, never actually finishes — which is either a bleak thought or, taken the other way, a genuinely steadying one: the fact that the reins feel this hard to hold today does not mean the charioteer is failing at something everyone else has already solved. Nobody solves it permanently. The work is holding on through this stretch of road, and then the next one.</p>
+
+<figure class="figure">
+<svg viewBox="0 0 700 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram of Plato's chariot allegory from the Phaedrus, showing the charioteer, the noble horse, and the crooked horse, mapped onto the three figures in the painting">
+<rect width="700" height="300" fill="#f3ece0"/>
+<text x="350" y="28" text-anchor="middle" font-family="Cinzel, serif" font-size="15" fill="#201a15" font-weight="700">THE CHARIOT OF THE SOUL — PHAEDRUS 246a</text>
+
+<circle cx="120" cy="150" r="55" fill="rgba(28,58,94,0.08)" stroke="#1c3a5e" stroke-width="1.5"/>
+<text x="120" y="140" text-anchor="middle" font-family="Cinzel, serif" font-size="12.5" fill="#1c3a5e" font-weight="700">NOBLE HORSE</text>
+<text x="120" y="158" text-anchor="middle" font-family="EB Garamond, serif" font-size="10.5" fill="#201a15">honor, shame,</text>
+<text x="120" y="172" text-anchor="middle" font-family="EB Garamond, serif" font-size="10.5" fill="#201a15">responsive to reason</text>
+<text x="120" y="195" text-anchor="middle" font-family="EB Garamond, serif" font-size="10" fill="#3a3630" font-style="italic">— the angel</text>
+
+<circle cx="350" cy="90" r="50" fill="rgba(201,161,95,0.2)" stroke="#c9a15f" stroke-width="2"/>
+<text x="350" y="82" text-anchor="middle" font-family="Cinzel, serif" font-size="13" fill="#8a6a2f" font-weight="700">CHARIOTEER</text>
+<text x="350" y="100" text-anchor="middle" font-family="EB Garamond, serif" font-size="10.5" fill="#201a15">holds the reins,</text>
+<text x="350" y="113" text-anchor="middle" font-family="EB Garamond, serif" font-size="10.5" fill="#201a15">must steer both</text>
+<text x="350" y="132" text-anchor="middle" font-family="EB Garamond, serif" font-size="10" fill="#3a3630" font-style="italic">— the young man</text>
+
+<circle cx="580" cy="150" r="55" fill="rgba(154,28,34,0.08)" stroke="#9a1c22" stroke-width="1.5"/>
+<text x="580" y="140" text-anchor="middle" font-family="Cinzel, serif" font-size="12.5" fill="#9a1c22" font-weight="700">CROOKED HORSE</text>
+<text x="580" y="158" text-anchor="middle" font-family="EB Garamond, serif" font-size="10.5" fill="#201a15">appetite, deaf to</text>
+<text x="580" y="172" text-anchor="middle" font-family="EB Garamond, serif" font-size="10.5" fill="#201a15">persuasion, needs the whip</text>
+<text x="580" y="195" text-anchor="middle" font-family="EB Garamond, serif" font-size="10" fill="#3a3630" font-style="italic">— Satan</text>
+
+<path d="M170 150 L305 105" stroke="#3a3630" stroke-width="1.5" fill="none"/>
+<path d="M530 150 L395 105" stroke="#3a3630" stroke-width="1.5" fill="none"/>
+<text x="350" y="270" text-anchor="middle" font-family="EB Garamond, serif" font-size="12" fill="#3a3630" font-style="italic">The struggle is never won permanently — only held, one stretch of road at a time.</text>
+</svg>
+<figcaption>Plato's three-part soul, mapped directly onto Retzsch's three figures — the charioteer's dilemma rather than a two-sided battle.</figcaption>
+</figure>
 </article>
 
 <article class="chapter" id="ch34">
 <h2>34. The Actual Game vs. the Meta Game</h2>
 <p>Chess is, formally, a game of perfect information — nothing is hidden from either player. And yet the painting's entire drama takes place in a layer above the board: Satan's confident posture, his crowding of the physical space, his visible hoarding of captured pieces. Signaling theory, developed independently in evolutionary biology by Amotz Zahavi and in economics by Michael Spence, describes exactly this maneuver — using a costly, visible display of dominance to induce an opponent's retreat without ever having to test that dominance in an actual contest. Anchoring research from Kahneman and Tversky adds the mechanism by which it works: whoever sets the first emotional or factual frame in an interaction disproportionately shapes everything that follows, so that once the young man has silently accepted "I have already lost" as the starting frame, every subsequent thought is spent asking how, rather than whether. The meta game, in other words, is not a metaphorical add-on to the real contest. For a sufficiently intimidated player, it functionally replaces it.</p>
+<p>In everyday terms: chess itself hides nothing — both players can see every piece. What Satan is actually exploiting is a layer that has nothing to do with the pieces at all: his posture, his confidence, the story he's projecting about who's already won. Because the young man accepted that story early, everything he does afterward is spent reacting to a narrative rather than reading the board — which is the entire trick, and the entire vulnerability.</p>
 </article>
 
 <article class="chapter" id="ch35">
@@ -543,6 +963,30 @@ footer .license{ font-size:0.85em; color:#9aa8ba; max-width:600px; margin:16px a
 <article class="chapter" id="ch36">
 <h2>36. Finite and Infinite Games</h2>
 <p>James Carse's <em>Finite and Infinite Games</em> distinguishes between games played to produce a winner within fixed rules and a defined end (finite) and games played with the sole object of keeping the play itself going, with fluid rules and no terminal victory condition (infinite). Chess is finite. Law, career, and relationships are, in Carse's sense, infinite. Paul Morphy's tragedy fits this distinction with uncomfortable precision: he achieved total mastery of a finite game, and then, on leaving it for the genuinely infinite games of law and society, appears to have kept applying finite-game logic — searching for a decisive, terminal win against opponents and threats that the format itself does not actually contain. A structural mismatch, more than any single external adversary, may be the more accurate diagnosis of what broke.</p>
+
+<figure class="figure">
+<svg viewBox="0 0 700 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Comparison table of finite games and infinite games per James Carse, applied to Paul Morphy's life">
+<rect width="700" height="260" fill="#f3ece0"/>
+<line x1="350" y1="15" x2="350" y2="245" stroke="#c9a15f" stroke-width="1.5" stroke-dasharray="4 5"/>
+
+<text x="175" y="38" text-anchor="middle" font-family="Cinzel, serif" font-size="16" fill="#9a1c22" font-weight="700">FINITE GAME</text>
+<text x="175" y="58" text-anchor="middle" font-family="EB Garamond, serif" font-size="12" fill="#3a3630" font-style="italic">chess</text>
+<text x="40" y="90" font-family="EB Garamond, serif" font-size="13.5" fill="#201a15">• Fixed rules</text>
+<text x="40" y="115" font-family="EB Garamond, serif" font-size="13.5" fill="#201a15">• Known players</text>
+<text x="40" y="140" font-family="EB Garamond, serif" font-size="13.5" fill="#201a15">• A defined end</text>
+<text x="40" y="165" font-family="EB Garamond, serif" font-size="13.5" fill="#201a15">• Object: produce a winner</text>
+<text x="40" y="200" font-family="EB Garamond, serif" font-size="13" fill="#9a1c22" font-style="italic">Morphy mastered this completely</text>
+
+<text x="525" y="38" text-anchor="middle" font-family="Cinzel, serif" font-size="16" fill="#1c3a5e" font-weight="700">INFINITE GAME</text>
+<text x="525" y="58" text-anchor="middle" font-family="EB Garamond, serif" font-size="12" fill="#3a3630" font-style="italic">law, career, society</text>
+<text x="390" y="90" font-family="EB Garamond, serif" font-size="13.5" fill="#201a15">• Fluid rules</text>
+<text x="390" y="115" font-family="EB Garamond, serif" font-size="13.5" fill="#201a15">• Unknown players</text>
+<text x="390" y="140" font-family="EB Garamond, serif" font-size="13.5" fill="#201a15">• No terminal end</text>
+<text x="390" y="165" font-family="EB Garamond, serif" font-size="13.5" fill="#201a15">• Object: keep the play going</text>
+<text x="390" y="200" font-family="EB Garamond, serif" font-size="13" fill="#1c3a5e" font-style="italic">Morphy applied finite logic here — and broke</text>
+</svg>
+<figcaption>Carse's distinction, applied directly to the two halves of Morphy's life.</figcaption>
+</figure>
 </article>
 
 <article class="chapter" id="ch37">
@@ -563,6 +1007,33 @@ footer .license{ font-size:0.85em; color:#9aa8ba; max-width:600px; margin:16px a
 <h2>39. The View from Above</h2>
 <p>The angel in Retzsch's painting is looking down at the board, not across at the Devil. That single compositional choice is, in effect, a picture of what the Stoics called the "view from above" — a mental exercise Pierre Hadot identified as central to ancient philosophy's practical function, and one Marcus Aurelius used constantly and explicitly in his private notebook, later published as the <em>Meditations</em>. Aurelius would deliberately widen his own frame: from a specific court intrigue to the city of Rome, to the Mediterranean, to the Earth as a single point in the surrounding dark — a spatial exercise with a clear cognitive purpose, since a threat that has just been placed in genuine scale rarely retains the same felt urgency. He performed the same move temporally, reminding himself that the same court dramas and betrayals had played out identically in every prior generation, converting a crisis that felt unprecedented into a pattern that was, on reflection, thoroughly unremarkable. And he performed it materially, stripping the ceremonial weight off objects and titles by naming their plain physical facts — imperial purple was, after all, just wool dyed in shellfish blood.</p>
 <p>Modern research on self-distancing, notably Ethan Kross's work on regulatory self-talk, gives this ancient technique a measurable neurological correlate: shifting internal language from first person to third person — from "why is this happening to me" to "why is this happening to him" — reliably reduces amygdala activation and improves a person's capacity to reason calmly under exactly the kind of pressure this article has spent several chapters describing. The angel never touches a piece. Her entire function is to model that elevated, undefended vantage point — proof that it's available to occupy, even though, per the terms of the painting, she can't occupy it on anyone else's behalf.</p>
+
+<figure class="figure">
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Concentric circle diagram of Marcus Aurelius's spatial view from above, zooming out from a single conflict to the cosmos">
+<rect width="500" height="500" fill="#0a1626"/>
+<circle cx="250" cy="250" r="220" fill="none" stroke="#c9a15f" stroke-width="0.75" opacity="0.5"/>
+<circle cx="250" cy="250" r="170" fill="none" stroke="#c9a15f" stroke-width="0.75" opacity="0.55"/>
+<circle cx="250" cy="250" r="120" fill="none" stroke="#c9a15f" stroke-width="0.75" opacity="0.65"/>
+<circle cx="250" cy="250" r="70" fill="none" stroke="#c9a15f" stroke-width="0.9" opacity="0.8"/>
+<circle cx="250" cy="250" r="26" fill="rgba(154,28,34,0.35)" stroke="#9a1c22" stroke-width="1.5"/>
+
+<text x="250" y="253" text-anchor="middle" font-family="EB Garamond, serif" font-size="10" fill="#f3ece0">the board</text>
+
+<text x="250" y="176" text-anchor="middle" font-family="Cinzel, serif" font-size="10.5" fill="#e0b96a">the room</text>
+<text x="250" y="126" text-anchor="middle" font-family="Cinzel, serif" font-size="10.5" fill="#e0b96a">the city</text>
+<text x="250" y="76" text-anchor="middle" font-family="Cinzel, serif" font-size="10.5" fill="#e0b96a">the empire</text>
+<text x="250" y="26" text-anchor="middle" font-family="Cinzel, serif" font-size="11" fill="#f3ece0" font-weight="700">THE COSMOS</text>
+
+<circle cx="250" cy="250" r="2.5" fill="#f3ece0"/>
+<circle cx="120" cy="90" r="1" fill="#f3ece0" opacity="0.6"/>
+<circle cx="410" cy="70" r="1.3" fill="#f3ece0" opacity="0.7"/>
+<circle cx="60" cy="300" r="1" fill="#f3ece0" opacity="0.5"/>
+<circle cx="440" cy="380" r="1.3" fill="#f3ece0" opacity="0.6"/>
+<circle cx="90" cy="440" r="1" fill="#f3ece0" opacity="0.5"/>
+<circle cx="430" cy="220" r="1.2" fill="#f3ece0" opacity="0.6"/>
+</svg>
+<figcaption>Aurelius's spatial exercise: widening the frame, ring by ring, until the immediate threat is restored to its actual scale.</figcaption>
+</figure>
 </article>
 
 <article class="chapter" id="ch40">
@@ -595,6 +1066,44 @@ footer .license{ font-size:0.85em; color:#9aa8ba; max-width:600px; margin:16px a
 <h2>44. Lifton's Eight Criteria of Thought Reform</h2>
 <p>Psychiatrist Robert Jay Lifton's 1961 study of ideological "thought reform" identified eight recurring mechanisms totalist systems use to dismantle an individual's independent judgment: milieu control (restricting outside information), mystical manipulation (engineering crises that only the system can resolve), the demand for purity, the cult of confession, treating doctrine as sacred science, loading the language with jargon that forecloses independent thought, subordinating the person's story to the group's doctrine, and — the mechanism Lifton considered most totalizing — the "dispensing of existence," in which the system communicates that a person has no legitimate right to exist, or to be heard, outside its own boundaries.</p>
 <p>Institutions rarely deploy all eight deliberately or in concert, and most of the friction people encounter in bureaucratic life is closer to negligence than design. But when several of Lifton's mechanisms do appear together — an inaccessible process presented as the only legitimate channel, jargon that makes a plain complaint sound unreasonable, an implicit message that persistence itself is the problem — his framework gives a name to a dynamic that otherwise tends to just feel like exhaustion with no clear source.</p>
+<p>Stated simply: these are eight separate ways a system can quietly convince someone that thinking for themselves isn't allowed — by cutting them off from outside opinions, drowning them in special vocabulary, or making them feel like a problem for questioning the process at all. No single one of these, on its own, is necessarily sinister; institutions do all sorts of things for boring, non-malicious reasons. But when a handful show up together and every one of them happens to make the institution harder to challenge, that clustering is worth noticing for what it is.</p>
+
+<figure class="figure">
+<svg viewBox="0 0 560 560" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Wheel diagram of Robert Jay Lifton's eight criteria of thought reform">
+<rect width="560" height="560" fill="#f3ece0"/>
+<circle cx="280" cy="280" r="200" fill="none" stroke="#c9a15f" stroke-width="1" stroke-dasharray="2 4"/>
+<circle cx="280" cy="280" r="56" fill="rgba(28,58,94,0.1)" stroke="#1c3a5e" stroke-width="2"/>
+<text x="280" y="276" text-anchor="middle" font-family="Cinzel, serif" font-size="12" fill="#1c3a5e" font-weight="700">THOUGHT</text>
+<text x="280" y="292" text-anchor="middle" font-family="Cinzel, serif" font-size="12" fill="#1c3a5e" font-weight="700">REFORM</text>
+
+<g font-family="EB Garamond, serif" font-size="11.5" fill="#201a15" text-anchor="middle">
+<circle cx="280" cy="80" r="5" fill="#9a1c22"/>
+<text x="280" y="62">Milieu Control</text>
+
+<circle cx="421" cy="139" r="5" fill="#9a1c22"/>
+<text x="421" y="120" transform="rotate(0 421 120)">Mystical Manipulation</text>
+
+<circle cx="480" cy="280" r="5" fill="#9a1c22"/>
+<text x="480" y="262">Demand for Purity</text>
+
+<circle cx="421" cy="421" r="5" fill="#9a1c22"/>
+<text x="421" y="440">Cult of Confession</text>
+
+<circle cx="280" cy="480" r="5" fill="#9a1c22"/>
+<text x="280" y="500">Sacred Science</text>
+
+<circle cx="139" cy="421" r="5" fill="#9a1c22"/>
+<text x="139" y="440">Loaded Language</text>
+
+<circle cx="80" cy="280" r="5" fill="#9a1c22"/>
+<text x="80" y="262">Doctrine Over Person</text>
+
+<circle cx="139" cy="139" r="5" fill="#9a1c22"/>
+<text x="139" y="120">Dispensing of Existence</text>
+</g>
+</svg>
+<figcaption>Lifton's eight mechanisms of totalist thought reform. Institutions rarely run all eight — but the more that co-occur, the more the friction resembles design rather than accident.</figcaption>
+</figure>
 </article>
 
 <article class="chapter" id="ch45">
@@ -619,6 +1128,7 @@ footer .license{ font-size:0.85em; color:#9aa8ba; max-width:600px; margin:16px a
 <h2>48. Pathological Accommodation and the Risk Regulation Model</h2>
 <p>Psychoanalyst Bernard Brandchaft's concept of "pathological accommodation," developed within intersubjective psychoanalysis, describes relational systems in which an individual unconsciously sacrifices their own perception and emotional reality to preserve an attachment they have come to consider indispensable — organizing their entire inner life, over time, around whatever keeps the tie intact. Sandra Murray, John Holmes, and Dale Griffin's empirical Risk Regulation Model, working from a different discipline entirely, arrives at a strikingly similar mechanism: people continuously calibrate how much of their authentic self to reveal based on their real-time estimate of the probability of rejection, and with a volatile or highly critical partner, that estimated probability stays chronically elevated.</p>
 <p>Read together, a clinical theory and an empirical social-psychology model converge on the same practical conclusion from two independent directions: self-suppression in a difficult relationship is rarely a discrete decision a person makes once. It is a continuously re-run calculation, invisible even to the person running it, that keeps outputting the same answer for as long as the perceived cost of authenticity stays high — which is a more precise, and considerably less judgmental, description of what is usually called "losing yourself in a relationship."</p>
+<p>Put simply, a person in this position isn't failing to stand up for themselves once and then living with the consequences — they are running the same quiet risk-calculation dozens of times a day, and the calculation keeps coming back "too dangerous," so they keep folding. It looks, from a distance, like a personality trait. It is much closer to a running total that never gets low enough to feel safe.</p>
 </article>
 
 <div class="part-divider"><h2>Epilogue</h2></div>
@@ -733,6 +1243,29 @@ footer .license{ font-size:0.85em; color:#9aa8ba; max-width:600px; margin:16px a
 <li>Kaplan, S. (1995). The restorative benefits of nature. <em>Journal of Environmental Psychology</em>.</li>
 <li>Bratman, G. N., et al. (2015). Nature experience and rumination. <em>PNAS</em>.</li>
 <li>Boyle, N. (1991). <em>Goethe: The Poet and the Age</em>. Oxford University Press.</li>
+<li>Plato. <em>Phaedrus</em>, 246a–254e (B. Jowett, Trans.). The chariot allegory of the tripartite soul.</li>
+<li>Plato. <em>Republic</em>, Book IV. The tripartite soul: reason, spirit, and appetite.</li>
+<li>Annas, J. (1981). <em>An Introduction to Plato's Republic</em>. Oxford University Press.</li>
+<li>Irwin, T. (1995). <em>Plato's Ethics</em>. Oxford University Press.</li>
+<li>Nussbaum, M. C. (1986). <em>The Fragility of Goodness</em>. On reason, appetite, and moral luck in Greek philosophy.</li>
+<li>Cooper, J. M. (1984). Plato's theory of human motivation. <em>History of Philosophy Quarterly</em>.</li>
+</ul>
+
+<h3>Additional Chess &amp; Cultural History</h3>
+<ul>
+<li>Sergeant, P. W. (1916). <em>Morphy's Games of Chess</em>.</li>
+<li>Löwenthal, J. (1860). <em>Morphy's Games of Chess</em>. Contemporary annotations from Morphy's European tour.</li>
+<li>Shibut, M. (2004). <em>Paul Morphy and the Evolution of Chess Theory</em>.</li>
+<li>Prudentius. <em>Psychomachia</em> (5th century CE). The founding text of the virtues-and-vices battle allegory.</li>
+<li>Katzenellenbogen, A. (1939). <em>Allegories of the Virtues and Vices in Medieval Art</em>. On the visual lineage Retzsch inherited.</li>
+</ul>
+
+<h3>Additional Neuroscience &amp; Decision-Making</h3>
+<ul>
+<li>Damasio, A. (1994). <em>Descartes' Error: Emotion, Reason, and the Human Brain</em>. On the necessity of emotion for sound decision-making.</li>
+<li>McEwen, B. S. (1998). Protective and damaging effects of stress mediators. <em>New England Journal of Medicine</em>. Allostatic load under chronic pressure.</li>
+<li>Sapolsky, R. M. <em>Why Zebras Don't Get Ulcers</em>. On sustained stress response in the absence of physical threat.</li>
+<li>Ariely, D. <em>Predictably Irrational</em>. On decision-making under manufactured urgency.</li>
 </ul>
 
 </div>

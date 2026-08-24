@@ -24,17 +24,22 @@ gtag('config', 'G-0330YJ1QMD');
 <meta name="robots" content="index, follow">
 
 <meta property="og:type" content="article">
+<meta property="og:site_name" content="The Devil's Game">
 <meta property="og:title" content="The Devil's Game: What Retzsch's Chess Players Teach About the Psychology of the Bargain">
 <meta property="og:description" content="A long-form study of the Faustian bargain — through art history, psychoanalysis, neuroscience, and Stoic philosophy.">
-<meta property="og:image" content="og-image.jpg">
+<meta property="og:image" content="https://sauerninja.github.io/Devils-Game/og-image.jpg">
+<meta property="og:image:secure_url" content="https://sauerninja.github.io/Devils-Game/og-image.jpg">
+<meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Detail of Satan's face from Moritz Retzsch's The Chess Players">
 <meta property="og:url" content="https://sauerninja.github.io/Devils-Game/">
+<meta property="og:locale" content="en_US">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="The Devil's Game">
 <meta name="twitter:description" content="A long-form study of the Faustian bargain — through art history, psychoanalysis, neuroscience, and Stoic philosophy.">
-<meta name="twitter:image" content="og-image.jpg">
+<meta name="twitter:image" content="https://sauerninja.github.io/Devils-Game/og-image.jpg">
 <meta name="twitter:image:alt" content="Detail of Satan's face from Moritz Retzsch's The Chess Players">
 
 <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -50,7 +55,7 @@ gtag('config', 'G-0330YJ1QMD');
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": "The Devil's Game",
-  "image": "og-image.jpg",
+  "image": "https://sauerninja.github.io/Devils-Game/og-image.jpg",
   "author": {"@type": "Person", "name": "Setvin Noether"},
   "publisher": {"@type": "Organization", "name": "Setvin Noether"},
   "mainEntityOfPage": "https://sauerninja.github.io/Devils-Game/",
@@ -328,6 +333,17 @@ footer{
 footer a{ color: var(--gold-bright); }
 footer .license{ font-size:0.85em; color:#9aa8ba; max-width:600px; margin:16px auto 0; }
 
+.timeline-grid{ display:flex; gap:40px; margin-top:20px; align-items:flex-start; }
+.timeline-col{ flex:1 1 0; min-width:0; }
+.timeline-item{
+  display:flex; gap:14px; padding: 10px 0; border-bottom: 1px solid rgba(201,161,95,0.25);
+}
+.timeline-date{
+  font-family:'Cinzel', serif; font-weight:700; color: var(--red); font-size:0.85em;
+  flex: 0 0 108px; letter-spacing:0.3px;
+}
+.timeline-desc{ font-size:0.92em; color: var(--ink); line-height:1.55; }
+
 .glossary dl{ margin:0; }
 .glossary dt{
   font-family:'Cinzel', serif; font-weight:700; color: var(--red); font-size:1.02em;
@@ -337,6 +353,8 @@ footer .license{ font-size:0.85em; color:#9aa8ba; max-width:600px; margin:16px a
 .glossary dd{ margin:8px 0 0; padding-left:0; color: var(--ink); }
 
 @media (max-width: 640px){
+  .timeline-grid{ flex-direction:column; gap:0; }
+  .timeline-date{ flex: 0 0 90px; font-size:0.8em; }
   body{ font-size:16.5px; }
   .title-block h1{ font-size:2.2em; letter-spacing:1px; }
   .section-index{ padding:24px 20px; }
@@ -366,18 +384,6 @@ footer .license{ font-size:0.85em; color:#9aa8ba; max-width:600px; margin:16px a
   <p class="subtitle">What a forgotten 1831 painting of a chess match against Satan reveals about the psychology of every bargain we make against our own interest — in courtship, in institutions, and inside our own heads.</p>
   <p class="meta-line">A research article by Setvin Noether · 67 chapters · ~90 minute read</p>
   <p class="epigraph">"Two souls, alas, are dwelling in my breast." — Goethe, <em>Faust</em></p>
-</div>
-
-<div class="share-bar">
-  <a href="https://twitter.com/intent/tweet?url=https://sauerninja.github.io/Devils-Game/&text=The%20Devil%27s%20Game" aria-label="Share on X" target="_blank" rel="noopener">
-    <svg viewBox="0 0 24 24" fill="#fff"><path d="M18.9 2H22l-7.6 8.7L23.5 22h-7.1l-5.5-7.2L4.6 22H1.5l8.1-9.3L1 2h7.3l5 6.6L18.9 2zm-1.2 18h1.9L7.4 4H5.4l12.3 16z"/></svg>
-  </a>
-  <a href="https://www.reddit.com/submit?url=https://sauerninja.github.io/Devils-Game/&title=The%20Devil%27s%20Game" aria-label="Share on Reddit" target="_blank" rel="noopener">
-    <svg viewBox="0 0 24 24" fill="#FF4500"><circle cx="12" cy="12" r="12" fill="#fff"/><path fill="#FF4500" d="M22 12a2 2 0 0 0-3.4-1.4 8.5 8.5 0 0 0-4.6-1.5l.9-3.9 2.9.7a1.4 1.4 0 1 0 .1-.6l-3.2-.7a.3.3 0 0 0-.4.2l-1 4.3a8.5 8.5 0 0 0-4.7 1.5A2 2 0 1 0 6 14.1a3.9 3.9 0 0 0 0 .5c0 2.6 3.1 4.8 6.9 4.8s6.9-2.1 6.9-4.8a3.9 3.9 0 0 0 0-.5A2 2 0 0 0 22 12zM9 13.2a1.2 1.2 0 1 1 1.2 1.2A1.2 1.2 0 0 1 9 13.2zm6.4 3.6a4.8 4.8 0 0 1-3.4 1.1 4.8 4.8 0 0 1-3.4-1.1.4.4 0 0 1 .6-.6 4 4 0 0 0 2.8.9 4 4 0 0 0 2.8-.9.4.4 0 1 1 .6.6zm-.3-2.4A1.2 1.2 0 1 1 16.3 13.2a1.2 1.2 0 0 1-1.2 1.2z"/></svg>
-  </a>
-  <a href="mailto:?subject=The%20Devil%27s%20Game&body=https://sauerninja.github.io/Devils-Game/" aria-label="Share by email">
-    <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 6l10 7 10-7"/></svg>
-  </a>
 </div>
 
 <main>
@@ -1332,6 +1338,18 @@ footer .license{ font-size:0.85em; color:#9aa8ba; max-width:600px; margin:16px a
 <p>What remains, after fifty chapters spent circling one small canvas from every available discipline, is not a formula and was never going to be one. Chess metaphors, Stoic exercises, and clinical frameworks are useful exactly to the degree that they widen the gap between feeling checkmated and being checkmated long enough for a person to actually look — they are not guarantees, and nothing in this article should be read as promising that looking clearly is sufficient on its own to change every outcome. Sometimes the position really has collapsed, and the honest, difficult work is grieving that rather than searching indefinitely for a move that was never there. But the painting endures, across nearly two centuries of retitling, misreading, and rediscovery, because it refuses to resolve that question for the viewer one way or the other. It simply insists, patiently, that the question is worth asking before the board is abandoned — which, on reflection, may be the entire and sufficient point of having painted it at all.</p>
 </article>
 
+<div class="share-bar">
+  <a href="https://twitter.com/intent/tweet?url=https://sauerninja.github.io/Devils-Game/&text=The%20Devil%27s%20Game" aria-label="Share on X" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="#fff"><path d="M18.9 2H22l-7.6 8.7L23.5 22h-7.1l-5.5-7.2L4.6 22H1.5l8.1-9.3L1 2h7.3l5 6.6L18.9 2zm-1.2 18h1.9L7.4 4H5.4l12.3 16z"/></svg>
+  </a>
+  <a href="https://www.reddit.com/submit?url=https://sauerninja.github.io/Devils-Game/&title=The%20Devil%27s%20Game" aria-label="Share on Reddit" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="#FF4500"><circle cx="12" cy="12" r="12" fill="#fff"/><path fill="#FF4500" d="M22 12a2 2 0 0 0-3.4-1.4 8.5 8.5 0 0 0-4.6-1.5l.9-3.9 2.9.7a1.4 1.4 0 1 0 .1-.6l-3.2-.7a.3.3 0 0 0-.4.2l-1 4.3a8.5 8.5 0 0 0-4.7 1.5A2 2 0 1 0 6 14.1a3.9 3.9 0 0 0 0 .5c0 2.6 3.1 4.8 6.9 4.8s6.9-2.1 6.9-4.8a3.9 3.9 0 0 0 0-.5A2 2 0 0 0 22 12zM9 13.2a1.2 1.2 0 1 1 1.2 1.2A1.2 1.2 0 0 1 9 13.2zm6.4 3.6a4.8 4.8 0 0 1-3.4 1.1 4.8 4.8 0 0 1-3.4-1.1.4.4 0 0 1 .6-.6 4 4 0 0 0 2.8.9 4 4 0 0 0 2.8-.9.4.4 0 1 1 .6.6zm-.3-2.4A1.2 1.2 0 1 1 16.3 13.2a1.2 1.2 0 0 1-1.2 1.2z"/></svg>
+  </a>
+  <a href="mailto:?subject=The%20Devil%27s%20Game&body=https://sauerninja.github.io/Devils-Game/" aria-label="Share by email">
+    <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 6l10 7 10-7"/></svg>
+  </a>
+</div>
+
 <div class="part-divider" style="padding-top:70px;"><h2>Open Questions</h2></div>
 
 <article class="chapter" style="padding-top:40px;" id="openquestions">
@@ -1348,62 +1366,38 @@ footer .license{ font-size:0.85em; color:#9aa8ba; max-width:600px; margin:16px a
 
 <article class="chapter" style="padding-top:40px;">
 <h2>Key Dates Across This Article's Sources</h2>
-<div class="glossary">
-<dl>
-<dt>6th century CE</dt><dd>The Theophilus of Adana legend, the West's oldest surviving prototype of a written pact with the Devil.</dd>
-
-<dt>c. 5th century CE</dt><dd>Prudentius composes the <em>Psychomachia</em>, establishing the personified virtues-and-vices battle tradition Retzsch later inherits.</dd>
-
-<dt>c. 370 BCE</dt><dd>Plato writes the <em>Phaedrus</em>, containing the chariot allegory of the tripartite soul.</dd>
-
-<dt>1513</dt><dd>Machiavelli writes <em>The Prince</em>.</dd>
-
-<dt>1587</dt><dd>The anonymous German <em>Historia von D. Johann Fausten</em> is published — the first printed Faust chapbook.</dd>
-
-<dt>1592</dt><dd>Christopher Marlowe's <em>The Tragical History of Doctor Faustus</em> is first performed.</dd>
-
-<dt>1779</dt><dd>Moritz Retzsch is born in Dresden.</dd>
-
-<dt>1780</dt><dd>Goethe is initiated into the Amalia Masonic Lodge in Weimar.</dd>
-
-<dt>1795</dt><dd>Schiller publishes <em>Letters Upon the Aesthetic Education of Man</em>.</dd>
-
-<dt>1798</dt><dd>Retzsch enrolls at the Dresden Academy of Fine Arts.</dd>
-
-<dt>1818</dt><dd>The publisher Cotta commissions Retzsch's 26 engravings illustrating Goethe's <em>Faust</em>.</dd>
-
-<dt>1824</dt><dd>Retzsch is appointed professor at the Dresden Academy.</dd>
-
-<dt>1831</dt><dd>Retzsch paints <em>Die Schachspieler</em> (The Chess Players). Goethe completes <em>Faust, Part Two</em> the same year.</dd>
-
-<dt>1832</dt><dd>Goethe dies in Weimar.</dd>
-
-<dt>1836</dt><dd>Carl von Miltitz publishes the explanatory pamphlet identifying the meaning of every piece on the board.</dd>
-
-<dt>1837</dt><dd>Paul Morphy is born in New Orleans.</dd>
-
-<dt>1857</dt><dd>Retzsch dies in Oberlößnitz, in the Saxon wine country.</dd>
-
-<dt>1858</dt><dd>Morphy tours Europe, defeating the continent's reigning chess masters.</dd>
-
-<dt>Fall 1861</dt><dd>The Richmond, Virginia dinner at which Morphy is said to have identified the winning counter-move in the painting.</dd>
-
-<dt>1884</dt><dd>Morphy dies alone in New Orleans, having spent his final years in severe untreated paranoia.</dd>
-
-<dt>1888</dt><dd>Rev. G. A. MacDonnell publishes the first known written account of the Morphy anecdote.</dd>
-
-<dt>1890</dt><dd>Oscar Wilde publishes <em>The Picture of Dorian Gray</em>.</dd>
-
-<dt>1968</dt><dd>Stephen Karpman publishes the drama triangle.</dd>
-
-<dt>1979</dt><dd>Kahneman and Tversky publish Prospect Theory. Alice Miller publishes <em>The Drama of the Gifted Child</em>.</dd>
-
-<dt>1996</dt><dd>Joseph LeDoux publishes <em>The Emotional Brain</em>, mapping the neural "low road."</dd>
-
-<dt>2000</dt><dd>Haselton and Buss publish Error Management Theory.</dd>
-
-<dt>2002</dt><dd>Paulhus and Williams formalize the Dark Triad.</dd>
-</dl>
+<div class="timeline-grid">
+<div class="timeline-col">
+<div class="timeline-item"><span class="timeline-date">6th century CE</span><span class="timeline-desc">The Theophilus of Adana legend, the West's oldest surviving prototype of a written pact with the Devil.</span></div>
+<div class="timeline-item"><span class="timeline-date">c. 370 BCE</span><span class="timeline-desc">Plato writes the <em>Phaedrus</em>, containing the chariot allegory of the tripartite soul.</span></div>
+<div class="timeline-item"><span class="timeline-date">1587</span><span class="timeline-desc">The anonymous German <em>Historia von D. Johann Fausten</em> is published — the first printed Faust chapbook.</span></div>
+<div class="timeline-item"><span class="timeline-date">1779</span><span class="timeline-desc">Moritz Retzsch is born in Dresden.</span></div>
+<div class="timeline-item"><span class="timeline-date">1795</span><span class="timeline-desc">Schiller publishes <em>Letters Upon the Aesthetic Education of Man</em>.</span></div>
+<div class="timeline-item"><span class="timeline-date">1818</span><span class="timeline-desc">The publisher Cotta commissions Retzsch's 26 engravings illustrating Goethe's <em>Faust</em>.</span></div>
+<div class="timeline-item"><span class="timeline-date">1831</span><span class="timeline-desc">Retzsch paints <em>Die Schachspieler</em> (The Chess Players). Goethe completes <em>Faust, Part Two</em> the same year.</span></div>
+<div class="timeline-item"><span class="timeline-date">1836</span><span class="timeline-desc">Carl von Miltitz publishes the explanatory pamphlet identifying the meaning of every piece on the board.</span></div>
+<div class="timeline-item"><span class="timeline-date">1857</span><span class="timeline-desc">Retzsch dies in Oberlößnitz, in the Saxon wine country.</span></div>
+<div class="timeline-item"><span class="timeline-date">Fall 1861</span><span class="timeline-desc">The Richmond, Virginia dinner at which Morphy is said to have identified the winning counter-move in the painting.</span></div>
+<div class="timeline-item"><span class="timeline-date">1888</span><span class="timeline-desc">Rev. G. A. MacDonnell publishes the first known written account of the Morphy anecdote.</span></div>
+<div class="timeline-item"><span class="timeline-date">1968</span><span class="timeline-desc">Stephen Karpman publishes the drama triangle.</span></div>
+<div class="timeline-item"><span class="timeline-date">1996</span><span class="timeline-desc">Joseph LeDoux publishes <em>The Emotional Brain</em>, mapping the neural "low road."</span></div>
+<div class="timeline-item"><span class="timeline-date">2002</span><span class="timeline-desc">Paulhus and Williams formalize the Dark Triad.</span></div>
+</div>
+<div class="timeline-col">
+<div class="timeline-item"><span class="timeline-date">c. 5th century CE</span><span class="timeline-desc">Prudentius composes the <em>Psychomachia</em>, establishing the personified virtues-and-vices battle tradition Retzsch later inherits.</span></div>
+<div class="timeline-item"><span class="timeline-date">1513</span><span class="timeline-desc">Machiavelli writes <em>The Prince</em>.</span></div>
+<div class="timeline-item"><span class="timeline-date">1592</span><span class="timeline-desc">Christopher Marlowe's <em>The Tragical History of Doctor Faustus</em> is first performed.</span></div>
+<div class="timeline-item"><span class="timeline-date">1780</span><span class="timeline-desc">Goethe is initiated into the Amalia Masonic Lodge in Weimar.</span></div>
+<div class="timeline-item"><span class="timeline-date">1798</span><span class="timeline-desc">Retzsch enrolls at the Dresden Academy of Fine Arts.</span></div>
+<div class="timeline-item"><span class="timeline-date">1824</span><span class="timeline-desc">Retzsch is appointed professor at the Dresden Academy.</span></div>
+<div class="timeline-item"><span class="timeline-date">1832</span><span class="timeline-desc">Goethe dies in Weimar.</span></div>
+<div class="timeline-item"><span class="timeline-date">1837</span><span class="timeline-desc">Paul Morphy is born in New Orleans.</span></div>
+<div class="timeline-item"><span class="timeline-date">1858</span><span class="timeline-desc">Morphy tours Europe, defeating the continent's reigning chess masters.</span></div>
+<div class="timeline-item"><span class="timeline-date">1884</span><span class="timeline-desc">Morphy dies alone in New Orleans, having spent his final years in severe untreated paranoia.</span></div>
+<div class="timeline-item"><span class="timeline-date">1890</span><span class="timeline-desc">Oscar Wilde publishes <em>The Picture of Dorian Gray</em>.</span></div>
+<div class="timeline-item"><span class="timeline-date">1979</span><span class="timeline-desc">Kahneman and Tversky publish Prospect Theory. Alice Miller publishes <em>The Drama of the Gifted Child</em>.</span></div>
+<div class="timeline-item"><span class="timeline-date">2000</span><span class="timeline-desc">Haselton and Buss publish Error Management Theory.</span></div>
+</div>
 </div>
 </article>
 

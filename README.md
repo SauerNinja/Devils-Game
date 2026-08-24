@@ -1,4 +1,4 @@
-![The Chess Players by Moritz Retzsch](assets/hero.png)
+![The Chess Players by Moritz Retzsch](hero.png)
 
 # The Devil's Game
 

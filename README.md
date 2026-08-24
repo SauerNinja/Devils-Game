@@ -18,4 +18,4 @@ MIT Licensed. Thoughts by Setvin Noether ([@SauerNinja](https://github.com/Sauer
 
 ### Suggested citation
 
-Noether, S. (2026). *The Devil's Game*.
+Setvin Noether (2026). *The Devil's Game*.
